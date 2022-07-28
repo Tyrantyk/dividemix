@@ -1,0 +1,10 @@
+Epoch:0   Accuracy:63.95
+Epoch:1   Accuracy:72.94
+Epoch:2   Accuracy:75.43
+Epoch:3   Accuracy:77.27
+Epoch:4   Accuracy:78.45
+Epoch:5   Accuracy:79.09
+Epoch:6   Accuracy:79.87
+Epoch:7   Accuracy:80.40
+Epoch:8   Accuracy:80.63
+Epoch:9   Accuracy:80.52

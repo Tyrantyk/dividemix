@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 import sys
 import torch
 import torch.nn as nn
@@ -11,24 +11,32 @@ import argparse
 import numpy as np
 from PreResNet import *
 from sklearn.mixture import GaussianMixture
+from utils import estimator, get_cosine_schedule_with_warmup
+from ema import ModelEMA
 import dataloader_cifar as dataloader
-
+import torch.multiprocessing as mp
 parser = argparse.ArgumentParser(description='PyTorch CIFAR Training')
 parser.add_argument('--batch_size', default=64, type=int, help='train batchsize') 
 parser.add_argument('--lr', '--learning_rate', default=0.02, type=float, help='initial learning rate')
 parser.add_argument('--noise_mode',  default='sym')
 parser.add_argument('--alpha', default=4, type=float, help='parameter for Beta')
-parser.add_argument('--lambda_u', default=25, type=float, help='weight for unsupervised loss')
-parser.add_argument('--p_threshold', default=0.5, type=float, help='clean probability threshold')
+parser.add_argument('--lambda_u', default=5, type=float, help='weight for unsupervised loss')
 parser.add_argument('--T', default=0.5, type=float, help='sharpening temperature')
 parser.add_argument('--num_epochs', default=300, type=int)
-parser.add_argument('--r', default=0.5, type=float, help='noise ratio')
+parser.add_argument('--r', default=0.8, type=float, help='noise ratio')
+parser.add_argument('--nesterov', action='store_true', default=True,
+                    help='use nesterov momentum')
+parser.add_argument('--warmup', default=0, type=float,
+                    help='warmup epochs (unlabeled data based)')
 parser.add_argument('--id', default='')
-parser.add_argument('--seed', default=123)
+parser.add_argument('--seed', default=1)
 parser.add_argument('--gpuid', default=0, type=int)
 parser.add_argument('--num_class', default=10, type=int)
 parser.add_argument('--data_path', default='./cifar-10', type=str, help='path to dataset')
 parser.add_argument('--dataset', default='cifar10', type=str)
+parser.add_argument("--proj_output_dim", type=int, default=128)
+parser.add_argument("--proj_hidden_dim", type=int, default=2048)
+parser.add_argument("--num_prototypes", type=int, default=3000)
 args = parser.parse_args()
 
 torch.cuda.set_device(args.gpuid)
@@ -38,97 +46,82 @@ torch.cuda.manual_seed_all(args.seed)
 
 
 # Training
-def train(epoch,net,net2,optimizer,labeled_trainloader,unlabeled_trainloader):
+def train(epoch, net, optimizer, labeled_trainloader, unlabeled_trainloader, scheduler):
     net.train()
-    net2.eval() #fix one network and train the other
-    
-    unlabeled_train_iter = iter(unlabeled_trainloader)    
+
+    unlabeled_train_iter = iter(unlabeled_trainloader)
     num_iter = (len(labeled_trainloader.dataset)//args.batch_size)+1
-    for batch_idx, (inputs_x, inputs_x2, labels_x, w_x) in enumerate(labeled_trainloader):      
+
+    for batch_idx, (inputs_x, labels_x, w_x) in enumerate(labeled_trainloader):
         try:
-            inputs_u, inputs_u2 = unlabeled_train_iter.next()
+            inputs_u_w, inputs_u_s, index = unlabeled_train_iter.next()
         except:
             unlabeled_train_iter = iter(unlabeled_trainloader)
-            inputs_u, inputs_u2 = unlabeled_train_iter.next()                 
+            inputs_u_w, inputs_u_s, index = unlabeled_train_iter.next()
         batch_size = inputs_x.size(0)
         
-        # Transform label to one-hot
-        labels_x = torch.zeros(batch_size, args.num_class).scatter_(1, labels_x.view(-1,1), 1)        
-        w_x = w_x.view(-1,1).type(torch.FloatTensor) 
 
-        inputs_x, inputs_x2, labels_x, w_x = inputs_x.cuda(), inputs_x2.cuda(), labels_x.cuda(), w_x.cuda()
-        inputs_u, inputs_u2 = inputs_u.cuda(), inputs_u2.cuda()
+        inputs_x, labels_x, w_x = inputs_x.cuda(), labels_x.cuda(), w_x.cuda()
+        inputs_u_w, inputs_u_s = inputs_u_w.cuda(), inputs_u_s.cuda()
 
-        with torch.no_grad():
-            # label co-guessing of unlabeled samples
-            outputs_u11 = net(inputs_u)
-            outputs_u12 = net(inputs_u2)
-            outputs_u21 = net2(inputs_u)
-            outputs_u22 = net2(inputs_u2)            
-            
-            pu = (torch.softmax(outputs_u11, dim=1) + torch.softmax(outputs_u12, dim=1) + torch.softmax(outputs_u21, dim=1) + torch.softmax(outputs_u22, dim=1)) / 4       
-            ptu = pu**(1/args.T) # temparature sharpening
-            
-            targets_u = ptu / ptu.sum(dim=1, keepdim=True) # normalize
-            targets_u = targets_u.detach()       
-            
-            # label refinement of labeled samples
-            outputs_x = net(inputs_x)
-            outputs_x2 = net(inputs_x2)            
-            
-            px = (torch.softmax(outputs_x, dim=1) + torch.softmax(outputs_x2, dim=1)) / 2
-            px = w_x*labels_x + (1-w_x)*px              
-            ptx = px**(1/args.T) # temparature sharpening 
-                       
-            targets_x = ptx / ptx.sum(dim=1, keepdim=True) # normalize           
-            targets_x = targets_x.detach()       
-        
-        # mixmatch
-        l = np.random.beta(args.alpha, args.alpha)        
-        l = max(l, 1-l)
-                
-        all_inputs = torch.cat([inputs_x, inputs_x2, inputs_u, inputs_u2], dim=0)
-        all_targets = torch.cat([targets_x, targets_x, targets_u, targets_u], dim=0)
+        inputs = torch.cat([inputs_x, inputs_u_w, inputs_u_s])
+        feats, z, logits, _ = net(inputs)
+        logits_x = logits[:batch_size,:]
+        logits_w, logits_s = logits[batch_size:,:].chunk(2)
+        feats_w, feats_s = feats[batch_size:,:].chunk(2)
+        z_w, z_s = z[batch_size:,:].chunk(2)
 
-        idx = torch.randperm(all_inputs.size(0))
+        # cla loss
+        class_loss = F.cross_entropy(logits_x, labels_x)
 
-        input_a, input_b = all_inputs, all_inputs[idx]
-        target_a, target_b = all_targets, all_targets[idx]
-        
-        mixed_input = l * input_a + (1 - l) * input_b        
-        mixed_target = l * target_a + (1 - l) * target_b
-                
-        logits = net(mixed_input)
-        logits_x = logits[:batch_size*2]
-        logits_u = logits[batch_size*2:]        
-           
-        Lx, Lu, lamb = criterion(logits_x, mixed_target[:batch_size*2], logits_u, mixed_target[batch_size*2:], epoch+batch_idx/num_iter, warm_up)
-        
+        # double match loss
+        pseudo_label = torch.softmax(logits_w.detach(), dim=-1)
+        max_probs, targets_u = torch.max(pseudo_label, dim=-1)
+        mask = max_probs.ge(0.95).float()
+
+        Ls = torch.mean(
+            -torch.sum(F.normalize(z_s, p=2, dim=1) * F.normalize(feats_w.detach(), p=2, dim=1), dim=1) + 1)
+        Lp = (F.cross_entropy(logits_s, targets_u,
+                              reduction='none') * mask).mean()
+
         # regularization
         prior = torch.ones(args.num_class)/args.num_class
         prior = prior.cuda()        
-        pred_mean = torch.softmax(logits, dim=1).mean(0)
+        pred_mean = torch.softmax(logits_w, dim=1).mean(0)
         penalty = torch.sum(prior*torch.log(prior/pred_mean))
 
-        loss = Lx + lamb * Lu  + penalty
+        # loss = class_loss + 5 * Ls  + Lp + penalty
+        loss = class_loss + 5 * Ls + Lp
         # compute gradient and do SGD step
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
+        scheduler.step()
+        #ema_model.update(model)
         
         sys.stdout.write('\r')
-        sys.stdout.write('%s:%.1f-%s | Epoch [%3d/%3d] Iter[%3d/%3d]\t Labeled loss: %.2f  Unlabeled loss: %.2f'
-                %(args.dataset, args.r, args.noise_mode, epoch, args.num_epochs, batch_idx+1, num_iter, Lx.item(), Lu.item()))
+        sys.stdout.write('%s:%.1f-%s | Epoch [%3d/%3d] Iter[%3d/%3d]\t cla loss: %.2f  Ls loss: %.2f  Lp loss: %.2f'
+                %(args.dataset, args.r, args.noise_mode, epoch, args.num_epochs, batch_idx+1, num_iter, class_loss.item(), Ls.item(), Lp.item()))
         sys.stdout.flush()
 
-def warmup(epoch,net,optimizer,dataloader):
+        feat_pre[index] = torch.tensor(torch.argmax(torch.softmax(logits_w, dim=1), dim=1),
+                                       dtype=torch.int).detach().clone()
+
+def warmup(epoch, net, optimizer, dataloader, all_loss, warm_up):
     net.train()
     num_iter = (len(dataloader.dataset)//dataloader.batch_size)+1
-    for batch_idx, (inputs, labels, path) in enumerate(dataloader):      
+    losses = torch.zeros(50000)
+    for batch_idx, (inputs, labels, path, clean) in enumerate(dataloader):
         inputs, labels = inputs.cuda(), labels.cuda() 
         optimizer.zero_grad()
-        outputs = net(inputs)               
-        loss = CEloss(outputs, labels)      
+        feat, z, logits, _ = net(inputs, grad=False)
+        feat_pre[path] = torch.argmax(torch.softmax(logits, dim=1), dim=1).int().detach().clone()
+
+        loss = CEloss(logits, labels)
+        with torch.no_grad():
+            loss_b = CE(logits, labels)
+        for b in range(inputs.size(0)):
+            losses[path[b]] = loss_b[b]
         if args.noise_mode=='asym':  # penalize confident prediction for asymmetric noise
             penalty = conf_penalty(outputs)
             L = loss + penalty      
@@ -142,65 +135,81 @@ def warmup(epoch,net,optimizer,dataloader):
                 %(args.dataset, args.r, args.noise_mode, epoch, args.num_epochs, batch_idx+1, num_iter, loss.item()))
         sys.stdout.flush()
 
-def test(epoch,net1,net2):
+    losses = (losses - losses.min()) / (losses.max() - losses.min())
+    all_loss.append(losses)
+
+    if epoch == warm_up-1:
+        history = torch.stack(all_loss)
+        input_loss = history[-5:].mean(0)
+        input_loss = input_loss.reshape(-1, 1)
+
+        # fit a two-component GMM to the loss
+        gmm = GaussianMixture(n_components=2, max_iter=10, tol=1e-2, reg_covar=5e-4)
+        gmm.fit(input_loss)
+        prob = gmm.predict_proba(input_loss)
+        prob = prob[:, gmm.means_.argmin()]
+
+        anchor[prob > 0.9] = True
+
+def test(epoch, net1):
     net1.eval()
-    net2.eval()
+    #ema_model = ema_model.ema
+    #ema_model.eval()
     correct = 0
+    #correct_ema = 0
     total = 0
     with torch.no_grad():
         for batch_idx, (inputs, targets) in enumerate(test_loader):
             inputs, targets = inputs.cuda(), targets.cuda()
-            outputs1 = net1(inputs)
-            outputs2 = net2(inputs)           
-            outputs = outputs1+outputs2
-            _, predicted = torch.max(outputs, 1)            
+            _, _, logits, _ = net1(inputs)
+            #_, _, logits_ema, _ = ema_model(inputs)
+            _, predicted = torch.max(logits, 1)
+            #_, predicted_ema = torch.max(logits_ema, 1)
                        
             total += targets.size(0)
-            correct += predicted.eq(targets).cpu().sum().item()                 
+            correct += predicted.eq(targets).cpu().sum().item()
+            #correct_ema += predicted.eq(targets).cpu().sum().item()
     acc = 100.*correct/total
-    print("\n| Test Epoch #%d\t Accuracy: %.2f%%\n" %(epoch,acc))  
+    #acc_ema = 100. * correct_ema / total
+    print("\n| Test Epoch #%d\t Accuracy: %.2f%%\n" %(epoch,acc))
+    #print("\n| Test Epoch #%d\t ema_Accuracy: %.2f%%\n" % (epoch, acc_ema))
     test_log.write('Epoch:%d   Accuracy:%.2f\n'%(epoch,acc))
     test_log.flush()  
 
-def eval_train(model,all_loss):    
+def eval_train(model, w):
     model.eval()
-    losses = torch.zeros(50000)    
+    # update prototype label
+    for i in range(args.num_prototypes):
+        if len(w[i]) != 0:
+            idx = torch.tensor(w[i]).cuda()
+            idx2 = anchor[idx]==True
+            if len(torch.where(idx2 == True)[0]) == 0:
+                proto_label[i] = -1
+            else:
+                proto_label[i] = torch.mode(feat_pre[idx][idx2])[0]
+
     with torch.no_grad():
-        for batch_idx, (inputs, targets, index) in enumerate(eval_loader):
-            inputs, targets = inputs.cuda(), targets.cuda() 
-            outputs = model(inputs) 
-            loss = CE(outputs, targets)  
-            for b in range(inputs.size(0)):
-                losses[index[b]]=loss[b]         
-    losses = (losses-losses.min())/(losses.max()-losses.min())    
-    all_loss.append(losses)
 
-    if args.r==0.9: # average loss over last 5 epochs to improve convergence stability
-        history = torch.stack(all_loss)
-        input_loss = history[-5:].mean(0)
-        input_loss = input_loss.reshape(-1,1)
-    else:
-        input_loss = losses.reshape(-1,1)
-    
-    # fit a two-component GMM to the loss
-    gmm = GaussianMixture(n_components=2,max_iter=10,tol=1e-2,reg_covar=5e-4)
-    gmm.fit(input_loss)
-    prob = gmm.predict_proba(input_loss) 
-    prob = prob[:,gmm.means_.argmin()]         
-    return prob,all_loss
+        pre = torch.zeros((1, 50000), dtype=torch.bool).squeeze(0).cuda()
+        w_all = torch.randn((1, 50000), dtype=torch.float32).squeeze(0).cuda()
+        w_recall = []
+        w_acc = []
+        for batch_idx, (inputs, targets, index, clean) in enumerate(eval_loader):
+            inputs, targets, clean = inputs.cuda(), targets.cuda(), torch.tensor(clean).cuda()
+            feat, z, logits, _ = model(inputs)
 
-def linear_rampup(current, warm_up, rampup_length=16):
-    current = np.clip((current-warm_up) / rampup_length, 0.0, 1.0)
-    return args.lambda_u*float(current)
+            # estimate
+            w = estimator(index, logits, targets, proto_label, feat_pid, k)
+            t = w == 1
+            w_recall.append(len(torch.where(t[t] == (targets[t] == clean[t]))[0]) / len(torch.where(t == True)[0]))
+            w_acc.append(len(torch.where((t == (targets == clean)) == True)[0]) / len(t))
+            pre[index] = w == 1
+            w_all[index] = w
+        print('estimator precision', torch.mean(torch.tensor(w_recall)) * 100)
+        print('estimator acc', torch.mean(torch.tensor(w_acc)) * 100)
 
-class SemiLoss(object):
-    def __call__(self, outputs_x, targets_x, outputs_u, targets_u, epoch, warm_up):
-        probs_u = torch.softmax(outputs_u, dim=1)
 
-        Lx = -torch.mean(torch.sum(F.log_softmax(outputs_x, dim=1) * targets_x, dim=1))
-        Lu = torch.mean((probs_u - targets_u)**2)
-
-        return Lx, Lu, linear_rampup(epoch,warm_up)
+    return np.array(w_all.cpu()), np.array(pre.cpu())
 
 class NegEntropy(object):
     def __call__(self,outputs):
@@ -208,8 +217,12 @@ class NegEntropy(object):
         return torch.mean(torch.sum(probs.log()*probs, dim=1))
 
 def create_model():
-    model = ResNet18(num_classes=args.num_class)
-    model = model.cuda()
+    model = swav(args)
+    model_dict = torch.load("./pretrain500.ckpt", map_location={'cuda:3':"cuda:0"})
+    model_dict['state_dict']["classifier.bias"] = torch.randn((1, 10), dtype=torch.float32).squeeze()
+    model_dict['state_dict']["classifier.weight"] = torch.randn((10, 128), dtype=torch.float32)
+    model_dict['state_dict'].pop("queue")
+    model.load_state_dict(model_dict['state_dict'])
     return model
 
 stats_log=open('./checkpoint/%s_%.1f_%s'%(args.dataset,args.r,args.noise_mode)+'_stats.txt','w') 
@@ -220,58 +233,75 @@ if args.dataset=='cifar10':
 elif args.dataset=='cifar100':
     warm_up = 30
 
-loader = dataloader.cifar_dataloader(args.dataset,r=args.r,noise_mode=args.noise_mode,batch_size=args.batch_size,num_workers=5,\
+loader = dataloader.cifar_dataloader(args.dataset,r=args.r,noise_mode=args.noise_mode,batch_size=args.batch_size,num_workers=4,\
     root_dir=args.data_path,log=stats_log,noise_file='%s/%.1f_%s.json'%(args.data_path,args.r,args.noise_mode))
 
 print('| Building net')
-net1 = create_model()
-net2 = create_model()
+net = create_model()
+#ema_model = ModelEMA(net, 0.999)
+net = net.cuda()
 cudnn.benchmark = True
 
-criterion = SemiLoss()
-optimizer1 = optim.SGD(net1.parameters(), lr=args.lr, momentum=0.9, weight_decay=5e-4)
-optimizer2 = optim.SGD(net2.parameters(), lr=args.lr, momentum=0.9, weight_decay=5e-4)
+no_decay = ['bias', 'bn']
+grouped_parameters = [
+        {'params': [p for n, p in net.named_parameters() if not any(
+            nd in n for nd in no_decay)], 'weight_decay': 5e-3},
+        {'params': [p for n, p in net.named_parameters() if any(
+            nd in n for nd in no_decay)], 'weight_decay': 0.0}
+    ]
+optimizer = optim.SGD(grouped_parameters, lr=args.lr, momentum=0.9, nesterov=args.nesterov)
+scheduler = get_cosine_schedule_with_warmup(
+    optimizer, args.warmup, 42000)
 
 CE = nn.CrossEntropyLoss(reduction='none')
 CEloss = nn.CrossEntropyLoss()
 if args.noise_mode=='asym':
     conf_penalty = NegEntropy()
 
-all_loss = [[],[]] # save the history of losses from two networks
+# init
+k = 3
+feat_pid = torch.ones((1, 50000), dtype=torch.int).squeeze(0).cuda()
+proto_label = torch.ones((1, args.num_prototypes), dtype=torch.int).squeeze(0).cuda()
+feat_pre = torch.zeros((1, 50000), dtype=torch.int).squeeze(0).cuda()
+anchor = torch.zeros((1, 50000), dtype=torch.bool).squeeze(0).cuda()
 
-for epoch in range(args.num_epochs+1):   
-    lr=args.lr
-    if epoch >= 150:
-        lr /= 10      
-    for param_group in optimizer1.param_groups:
-        param_group['lr'] = lr       
-    for param_group in optimizer2.param_groups:
-        param_group['lr'] = lr          
-    test_loader = loader.run('test')
-    eval_loader = loader.run('eval_train')   
-    
-    if epoch<warm_up:       
-        warmup_trainloader = loader.run('warmup')
-        print('Warmup Net1')
-        warmup(epoch,net1,optimizer1,warmup_trainloader)    
-        print('\nWarmup Net2')
-        warmup(epoch,net2,optimizer2,warmup_trainloader) 
-   
-    else:         
-        prob1,all_loss[0]=eval_train(net1,all_loss[0])   
-        prob2,all_loss[1]=eval_train(net2,all_loss[1])          
-               
-        pred1 = (prob1 > args.p_threshold)      
-        pred2 = (prob2 > args.p_threshold)      
-        
-        print('Train Net1')
-        labeled_trainloader, unlabeled_trainloader = loader.run('train',pred2,prob2) # co-divide
-        train(epoch,net1,net2,optimizer1,labeled_trainloader, unlabeled_trainloader) # train net1  
-        
-        print('\nTrain Net2')
-        labeled_trainloader, unlabeled_trainloader = loader.run('train',pred1,prob1) # co-divide
-        train(epoch,net2,net1,optimizer2,labeled_trainloader, unlabeled_trainloader) # train net2         
+w = [[] for i in range(args.num_prototypes)]
+all_loss = []  # save the history of losses from two networks
 
-    test(epoch,net1,net2)  
+# init prototype
+eval_loader = loader.run('eval_train')
+if __name__=='__main__':
+    for batch_idx, (inputs, targets, index, _) in enumerate(eval_loader):
+        inputs = inputs.cuda()
+        _, _, _, p = net(inputs)
+        pp = torch.softmax(p, dim=1)
+        pre = torch.argmax(pp, dim=1)
+        for i, (idx, p_t) in enumerate(zip(index, pre)):
+            feat_pid[idx] = p_t
+            w[p_t].append(idx.detach().clone())
+
+    for epoch in range(args.num_epochs+1):
+        lr=args.lr
+        if epoch >= 150:
+            lr /= 10
+        for param_group in optimizer.param_groups:
+            param_group['lr'] = lr
+
+        test_loader = loader.run('test')
+        eval_loader = loader.run('eval_train')
+
+        if epoch < warm_up:
+            warmup_trainloader = loader.run('warmup')
+            print('Warmup Net1')
+            warmup(epoch, net, optimizer, warmup_trainloader, all_loss, warm_up)
+
+        else:
+            prob, pred = eval_train(net, w)
+
+            print('Train Net1')
+            labeled_trainloader, unlabeled_trainloader = loader.run('train', pred, prob)  # co-divide
+            train(epoch, net, optimizer, labeled_trainloader, unlabeled_trainloader, scheduler)  # train net1
+
+        test(epoch, net)
 
 
