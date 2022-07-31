@@ -7,7 +7,7 @@ import json
 import os
 import torch
 from torchnet.meter import AUCMeter
-from randaugment import RandAugmentMC
+from utils.randaugment import RandAugmentMC
 
 def unpickle(file):
     import _pickle as cPickle
@@ -61,24 +61,24 @@ class cifar_dataset(Dataset):
                 noise_label = []
                 idx = list(range(50000))
                 random.shuffle(idx)
-                num_noise = int(self.r*50000)            
+                num_noise = int(self.r * 50000)
                 noise_idx = idx[:num_noise]
                 for i in range(50000):
                     if i in noise_idx:
-                        if noise_mode=='sym':
-                            if dataset=='cifar10': 
-                                noiselabel = random.randint(0,9)
-                            elif dataset=='cifar100':    
-                                noiselabel = random.randint(0,99)
+                        if noise_mode == 'sym':
+                            if dataset == 'cifar10':
+                                noiselabel = random.randint(0, 9)
+                            elif dataset == 'cifar100':
+                                noiselabel = random.randint(0, 99)
                             noise_label.append(noiselabel)
-                        elif noise_mode=='asym':   
+                        elif noise_mode == 'asym':
                             noiselabel = self.transition[train_label[i]]
                             noise_label.append(noiselabel)
-                    else:    
-                        noise_label.append(train_label[i])   
-                print("save noisy labels to %s ..."%noise_file)        
-                json.dump(noise_label,open(noise_file,"w"))       
-            
+                    else:
+                        noise_label.append(train_label[i])
+                print("save noisy labels to %s ..." % noise_file)
+                json.dump(noise_label, open(noise_file, "w"))
+
             if self.mode == 'all':
                 self.train_data = train_data
                 self.clean_label = np.array(train_label)

@@ -9,12 +9,13 @@ import random
 import os
 import argparse
 import numpy as np
-from PreResNet import *
+from model.PreResNet import *
 from sklearn.mixture import GaussianMixture
-from utils import estimator, get_cosine_schedule_with_warmup
-from ema import ModelEMA
-import dataloader_cifar as dataloader
+from utils.utils import estimator, get_cosine_schedule_with_warmup
+from utils.ema import EMA
+import dataloader.dataloader_cifar as dataloader
 import torch.multiprocessing as mp
+
 parser = argparse.ArgumentParser(description='PyTorch CIFAR Training')
 parser.add_argument('--batch_size', default=64, type=int, help='train batchsize') 
 parser.add_argument('--lr', '--learning_rate', default=0.02, type=float, help='initial learning rate')
@@ -22,8 +23,8 @@ parser.add_argument('--noise_mode',  default='sym')
 parser.add_argument('--alpha', default=4, type=float, help='parameter for Beta')
 parser.add_argument('--lambda_u', default=5, type=float, help='weight for unsupervised loss')
 parser.add_argument('--T', default=0.5, type=float, help='sharpening temperature')
-parser.add_argument('--num_epochs', default=300, type=int)
-parser.add_argument('--r', default=0.8, type=float, help='noise ratio')
+parser.add_argument('--num_epochs', default=600, type=int)
+parser.add_argument('--r', default=0.6, type=float, help='noise ratio')
 parser.add_argument('--nesterov', action='store_true', default=True,
                     help='use nesterov momentum')
 parser.add_argument('--warmup', default=0, type=float,
@@ -40,13 +41,14 @@ parser.add_argument("--num_prototypes", type=int, default=3000)
 args = parser.parse_args()
 
 torch.cuda.set_device(args.gpuid)
+device = torch.device('cuda', args.gpuid)
 random.seed(args.seed)
 torch.manual_seed(args.seed)
 torch.cuda.manual_seed_all(args.seed)
 
 
 # Training
-def train(epoch, net, optimizer, labeled_trainloader, unlabeled_trainloader, scheduler):
+def train(epoch, net, optimizer, labeled_trainloader, unlabeled_trainloader, scheduler, ema_model):
     net.train()
 
     unlabeled_train_iter = iter(unlabeled_trainloader)
@@ -91,13 +93,13 @@ def train(epoch, net, optimizer, labeled_trainloader, unlabeled_trainloader, sch
         penalty = torch.sum(prior*torch.log(prior/pred_mean))
 
         # loss = class_loss + 5 * Ls  + Lp + penalty
-        loss = class_loss + 5 * Ls + Lp
+        loss = class_loss + 10 * Ls + Lp
         # compute gradient and do SGD step
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
         scheduler.step()
-        #ema_model.update(model)
+        ema_model.update(net)
         
         sys.stdout.write('\r')
         sys.stdout.write('%s:%.1f-%s | Epoch [%3d/%3d] Iter[%3d/%3d]\t cla loss: %.2f  Ls loss: %.2f  Lp loss: %.2f'
@@ -107,7 +109,7 @@ def train(epoch, net, optimizer, labeled_trainloader, unlabeled_trainloader, sch
         feat_pre[index] = torch.tensor(torch.argmax(torch.softmax(logits_w, dim=1), dim=1),
                                        dtype=torch.int).detach().clone()
 
-def warmup(epoch, net, optimizer, dataloader, all_loss, warm_up):
+def warmup(epoch, net, optimizer, dataloader, all_loss, warm_up, ema):
     net.train()
     num_iter = (len(dataloader.dataset)//dataloader.batch_size)+1
     losses = torch.zeros(50000)
@@ -123,12 +125,13 @@ def warmup(epoch, net, optimizer, dataloader, all_loss, warm_up):
         for b in range(inputs.size(0)):
             losses[path[b]] = loss_b[b]
         if args.noise_mode=='asym':  # penalize confident prediction for asymmetric noise
-            penalty = conf_penalty(outputs)
+            penalty = conf_penalty(logits)
             L = loss + penalty      
         elif args.noise_mode=='sym':   
             L = loss
         L.backward()  
-        optimizer.step() 
+        optimizer.step()
+        ema.update(net)
 
         sys.stdout.write('\r')
         sys.stdout.write('%s:%.1f-%s | Epoch [%3d/%3d] Iter[%3d/%3d]\t CE-loss: %.4f'
@@ -153,28 +156,39 @@ def warmup(epoch, net, optimizer, dataloader, all_loss, warm_up):
 
 def test(epoch, net1):
     net1.eval()
-    #ema_model = ema_model.ema
-    #ema_model.eval()
     correct = 0
-    #correct_ema = 0
     total = 0
     with torch.no_grad():
         for batch_idx, (inputs, targets) in enumerate(test_loader):
             inputs, targets = inputs.cuda(), targets.cuda()
             _, _, logits, _ = net1(inputs)
-            #_, _, logits_ema, _ = ema_model(inputs)
             _, predicted = torch.max(logits, 1)
-            #_, predicted_ema = torch.max(logits_ema, 1)
-                       
+
             total += targets.size(0)
             correct += predicted.eq(targets).cpu().sum().item()
-            #correct_ema += predicted.eq(targets).cpu().sum().item()
     acc = 100.*correct/total
-    #acc_ema = 100. * correct_ema / total
     print("\n| Test Epoch #%d\t Accuracy: %.2f%%\n" %(epoch,acc))
-    #print("\n| Test Epoch #%d\t ema_Accuracy: %.2f%%\n" % (epoch, acc_ema))
     test_log.write('Epoch:%d   Accuracy:%.2f\n'%(epoch,acc))
-    test_log.flush()  
+    test_log.flush()
+
+
+def ema_test(epoch, net1, ema):
+    net1.eval()
+    correct = 0
+    total = 0
+    with torch.no_grad():
+        ema.apply_shadow(net1)
+        for batch_idx, (inputs, targets) in enumerate(test_loader):
+            inputs, targets = inputs.cuda(), targets.cuda()
+            _, _, logits, _ = net1(inputs)
+            _, predicted = torch.max(logits, 1)
+            total += targets.size(0)
+            correct += predicted.eq(targets).cpu().sum().item()
+        ema.restore(net1)
+    acc = 100. * correct / total
+    print("\n| Test Epoch #%d\t ema_Accuracy: %.2f%%\n" % (epoch, acc))
+    test_log.write('Epoch:%d   ema_Accuracy:%.2f\n' % (epoch, acc))
+    test_log.flush()
 
 def eval_train(model, w):
     model.eval()
@@ -195,14 +209,16 @@ def eval_train(model, w):
         w_recall = []
         w_acc = []
         for batch_idx, (inputs, targets, index, clean) in enumerate(eval_loader):
-            inputs, targets, clean = inputs.cuda(), targets.cuda(), torch.tensor(clean).cuda()
+            inputs, targets, clean = inputs.cuda(), targets.cuda(), torch.tensor(clean).clone().detach().cuda()
             feat, z, logits, _ = model(inputs)
 
             # estimate
             w = estimator(index, logits, targets, proto_label, feat_pid, k)
             t = w == 1
-            w_recall.append(len(torch.where(t[t] == (targets[t] == clean[t]))[0]) / len(torch.where(t == True)[0]))
-            w_acc.append(len(torch.where((t == (targets == clean)) == True)[0]) / len(t))
+            if t.sum() !=  0:
+                w_recall.append((t[t] == (targets[t] == clean[t])).sum() / t.sum())
+
+            w_acc.append(((t == (targets == clean)) == True).sum() / len(t))
             pre[index] = w == 1
             w_all[index] = w
         print('estimator precision', torch.mean(torch.tensor(w_recall)) * 100)
@@ -218,11 +234,12 @@ class NegEntropy(object):
 
 def create_model():
     model = swav(args)
-    model_dict = torch.load("./pretrain500.ckpt", map_location={'cuda:3':"cuda:0"})
+    model_dict = torch.load("./checkpoint/pretrain500.ckpt", map_location={'cuda:3':"cuda:0"})
     model_dict['state_dict']["classifier.bias"] = torch.randn((1, 10), dtype=torch.float32).squeeze()
     model_dict['state_dict']["classifier.weight"] = torch.randn((10, 128), dtype=torch.float32)
     model_dict['state_dict'].pop("queue")
     model.load_state_dict(model_dict['state_dict'])
+    model = model.to(device)
     return model
 
 stats_log=open('./checkpoint/%s_%.1f_%s'%(args.dataset,args.r,args.noise_mode)+'_stats.txt','w') 
@@ -233,13 +250,13 @@ if args.dataset=='cifar10':
 elif args.dataset=='cifar100':
     warm_up = 30
 
-loader = dataloader.cifar_dataloader(args.dataset,r=args.r,noise_mode=args.noise_mode,batch_size=args.batch_size,num_workers=4,\
+loader = dataloader.cifar_dataloader(args.dataset,r=args.r,noise_mode=args.noise_mode,batch_size=args.batch_size,num_workers=6,\
     root_dir=args.data_path,log=stats_log,noise_file='%s/%.1f_%s.json'%(args.data_path,args.r,args.noise_mode))
 
 print('| Building net')
 net = create_model()
-#ema_model = ModelEMA(net, 0.999)
-net = net.cuda()
+ema = EMA(net, 0.999)
+ema.register()
 cudnn.benchmark = True
 
 no_decay = ['bias', 'bn']
@@ -251,7 +268,7 @@ grouped_parameters = [
     ]
 optimizer = optim.SGD(grouped_parameters, lr=args.lr, momentum=0.9, nesterov=args.nesterov)
 scheduler = get_cosine_schedule_with_warmup(
-    optimizer, args.warmup, 42000)
+    optimizer, args.warmup, 48000)
 
 CE = nn.CrossEntropyLoss(reduction='none')
 CEloss = nn.CrossEntropyLoss()
@@ -270,6 +287,7 @@ all_loss = []  # save the history of losses from two networks
 
 # init prototype
 eval_loader = loader.run('eval_train')
+
 if __name__=='__main__':
     for batch_idx, (inputs, targets, index, _) in enumerate(eval_loader):
         inputs = inputs.cuda()
@@ -293,15 +311,16 @@ if __name__=='__main__':
         if epoch < warm_up:
             warmup_trainloader = loader.run('warmup')
             print('Warmup Net1')
-            warmup(epoch, net, optimizer, warmup_trainloader, all_loss, warm_up)
+            warmup(epoch, net, optimizer, warmup_trainloader, all_loss, warm_up, ema)
 
         else:
             prob, pred = eval_train(net, w)
 
             print('Train Net1')
             labeled_trainloader, unlabeled_trainloader = loader.run('train', pred, prob)  # co-divide
-            train(epoch, net, optimizer, labeled_trainloader, unlabeled_trainloader, scheduler)  # train net1
+            train(epoch, net, optimizer, labeled_trainloader, unlabeled_trainloader, scheduler, ema)  # train net1
 
         test(epoch, net)
+        ema_test(epoch, net, ema)
 
 
