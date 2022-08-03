@@ -13,6 +13,7 @@ from model.PreResNet import *
 from sklearn.mixture import GaussianMixture
 from utils.utils import estimator, get_cosine_schedule_with_warmup
 from utils.ema import EMA
+from utils.losses import TruncatedLoss
 import dataloader.dataloader_cifar as dataloader
 import torch.multiprocessing as mp
 
@@ -48,13 +49,22 @@ torch.cuda.manual_seed_all(args.seed)
 
 
 # Training
-def train(epoch, net, optimizer, labeled_trainloader, unlabeled_trainloader, scheduler, ema_model):
+def train(epoch, net, optimizer, labeled_trainloader, unlabeled_trainloader, scheduler, ema_model, GCEloss):
     net.train()
 
     unlabeled_train_iter = iter(unlabeled_trainloader)
     num_iter = (len(labeled_trainloader.dataset)//args.batch_size)+1
 
-    for batch_idx, (inputs_x, labels_x, w_x) in enumerate(labeled_trainloader):
+    # update gce loss weights
+    if epoch >= 60 and epoch % 10 == 0:
+        net.eval()
+        for batch_idx, (inputs_x, labels_x, w_x, labeled_index) in enumerate(labeled_trainloader):
+            inputs_x, labels_x, w_x = inputs_x.cuda(), labels_x.cuda(), w_x.cuda()
+            feats, z, logits, _  = net(inputs_x)
+            GCEloss.update_weight(logits, labels_x, labeled_index)
+        net.train()
+
+    for batch_idx, (inputs_x, labels_x, w_x, labeled_index) in enumerate(labeled_trainloader):
         try:
             inputs_u_w, inputs_u_s, index = unlabeled_train_iter.next()
         except:
@@ -76,6 +86,9 @@ def train(epoch, net, optimizer, labeled_trainloader, unlabeled_trainloader, sch
         # cla loss
         class_loss = F.cross_entropy(logits_x, labels_x)
 
+        # GCE loss
+        gce_loss = GCEloss(logits_x, labels_x, labeled_index)
+
         # double match loss
         pseudo_label = torch.softmax(logits_w.detach(), dim=-1)
         max_probs, targets_u = torch.max(pseudo_label, dim=-1)
@@ -94,6 +107,7 @@ def train(epoch, net, optimizer, labeled_trainloader, unlabeled_trainloader, sch
 
         # loss = class_loss + 5 * Ls  + Lp + penalty
         loss = class_loss + 10 * Ls + Lp
+
         # compute gradient and do SGD step
         optimizer.zero_grad()
         loss.backward()
@@ -272,6 +286,8 @@ scheduler = get_cosine_schedule_with_warmup(
 
 CE = nn.CrossEntropyLoss(reduction='none')
 CEloss = nn.CrossEntropyLoss()
+
+
 if args.noise_mode=='asym':
     conf_penalty = NegEntropy()
 
@@ -318,7 +334,9 @@ if __name__=='__main__':
 
             print('Train Net1')
             labeled_trainloader, unlabeled_trainloader = loader.run('train', pred, prob)  # co-divide
-            train(epoch, net, optimizer, labeled_trainloader, unlabeled_trainloader, scheduler, ema)  # train net1
+            if epoch == warm_up:
+                GCEloss = TruncatedLoss(trainset_size=len(labeled_trainloader)).cuda()
+            train(epoch, net, optimizer, labeled_trainloader, unlabeled_trainloader, scheduler, ema, GCEloss)  # train net1
 
         test(epoch, net)
         ema_test(epoch, net, ema)

@@ -109,7 +109,7 @@ class cifar_dataset(Dataset):
             img, target, prob = self.train_data[index], self.noise_label[index], self.probability[index]
             img = Image.fromarray(img)
             img1 = self.transform(img)
-            return img1, target, prob
+            return img1, target, prob, index
         elif self.mode=='unlabeled':
             img = self.train_data[index]
             img = Image.fromarray(img)
