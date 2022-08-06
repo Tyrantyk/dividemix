@@ -25,7 +25,7 @@ parser.add_argument('--alpha', default=4, type=float, help='parameter for Beta')
 parser.add_argument('--lambda_u', default=5, type=float, help='weight for unsupervised loss')
 parser.add_argument('--T', default=0.5, type=float, help='sharpening temperature')
 parser.add_argument('--num_epochs', default=600, type=int)
-parser.add_argument('--r', default=0.6, type=float, help='noise ratio')
+parser.add_argument('--r', default=0.5, type=float, help='noise ratio')
 parser.add_argument('--nesterov', action='store_true', default=True,
                     help='use nesterov momentum')
 parser.add_argument('--warmup', default=0, type=float,
@@ -106,7 +106,7 @@ def train(epoch, net, optimizer, labeled_trainloader, unlabeled_trainloader, sch
         penalty = torch.sum(prior*torch.log(prior/pred_mean))
 
         # loss = class_loss + 5 * Ls  + Lp + penalty
-        loss = class_loss + 10 * Ls + Lp
+        loss = gce_loss + 5 * Ls + Lp
 
         # compute gradient and do SGD step
         optimizer.zero_grad()
@@ -157,7 +157,7 @@ def warmup(epoch, net, optimizer, dataloader, all_loss, warm_up, ema):
 
     if epoch == warm_up-1:
         history = torch.stack(all_loss)
-        input_loss = history[-5:].mean(0)
+        input_loss = history.mean(0)
         input_loss = input_loss.reshape(-1, 1)
 
         # fit a two-component GMM to the loss
@@ -335,7 +335,7 @@ if __name__=='__main__':
             print('Train Net1')
             labeled_trainloader, unlabeled_trainloader = loader.run('train', pred, prob)  # co-divide
             if epoch == warm_up:
-                GCEloss = TruncatedLoss(trainset_size=len(labeled_trainloader)).cuda()
+                GCEloss = TruncatedLoss().cuda()
             train(epoch, net, optimizer, labeled_trainloader, unlabeled_trainloader, scheduler, ema, GCEloss)  # train net1
 
         test(epoch, net)
