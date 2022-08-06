@@ -414,3 +414,13 @@ Numer of labeled samples:22908   AUC:0.983
 Numer of labeled samples:22901   AUC:0.983
 Numer of labeled samples:22900   AUC:0.983
 Numer of labeled samples:22907   AUC:0.983
+Numer of labeled samples:22908   AUC:0.983
+Numer of labeled samples:22901   AUC:0.983
+Numer of labeled samples:22910   AUC:0.983
+Numer of labeled samples:22908   AUC:0.983
+Numer of labeled samples:22904   AUC:0.983
+Numer of labeled samples:22903   AUC:0.983
+Numer of labeled samples:22907   AUC:0.983
+Numer of labeled samples:22902   AUC:0.983
+Numer of labeled samples:22902   AUC:0.983
+Numer of labeled samples:22909   AUC:0.983
