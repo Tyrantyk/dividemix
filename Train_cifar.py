@@ -24,8 +24,8 @@ parser.add_argument('--noise_mode',  default='sym')
 parser.add_argument('--alpha', default=4, type=float, help='parameter for Beta')
 parser.add_argument('--lambda_u', default=5, type=float, help='weight for unsupervised loss')
 parser.add_argument('--T', default=0.5, type=float, help='sharpening temperature')
-parser.add_argument('--num_epochs', default=600, type=int)
-parser.add_argument('--r', default=0.5, type=float, help='noise ratio')
+parser.add_argument('--num_epochs', default=1000, type=int)
+parser.add_argument('--r', default=0.9, type=float, help='noise ratio')
 parser.add_argument('--nesterov', action='store_true', default=True,
                     help='use nesterov momentum')
 parser.add_argument('--warmup', default=0, type=float,
@@ -168,7 +168,7 @@ def warmup(epoch, net, optimizer, dataloader, all_loss, warm_up, ema):
 
         anchor[prob > 0.9] = True
 
-def test(epoch, net1):
+def test(epoch, net1, optimizer):
     net1.eval()
     correct = 0
     total = 0
@@ -181,8 +181,9 @@ def test(epoch, net1):
             total += targets.size(0)
             correct += predicted.eq(targets).cpu().sum().item()
     acc = 100.*correct/total
-    print("\n| Test Epoch #%d\t Accuracy: %.2f%%\n" %(epoch,acc))
-    test_log.write('Epoch:%d   Accuracy:%.2f\n'%(epoch,acc))
+    lr = optimizer.state_dict()['param_groups'][0]['lr']
+    print("\n| Test Epoch #%d\t Accuracy: %.2f  lr:%.6f\n" %(epoch, acc, lr))
+    test_log.write('Epoch:%d   Accuracy:%.2f   lr:%.6f\n'%(epoch, acc, lr))
     test_log.flush()
 
 
@@ -206,6 +207,7 @@ def ema_test(epoch, net1, ema):
 
 def eval_train(model, w):
     model.eval()
+
     # update prototype label
     for i in range(args.num_prototypes):
         if len(w[i]) != 0:
@@ -229,6 +231,7 @@ def eval_train(model, w):
             # estimate
             w = estimator(index, logits, targets, proto_label, feat_pid, k)
             t = w == 1
+
             if t.sum() !=  0:
                 w_recall.append((t[t] == (targets[t] == clean[t])).sum() / t.sum())
 
@@ -338,7 +341,7 @@ if __name__=='__main__':
                 GCEloss = TruncatedLoss().cuda()
             train(epoch, net, optimizer, labeled_trainloader, unlabeled_trainloader, scheduler, ema, GCEloss)  # train net1
 
-        test(epoch, net)
+        test(epoch, net, optimizer)
         ema_test(epoch, net, ema)
 
 

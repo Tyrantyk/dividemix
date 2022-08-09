@@ -1,870 +1,1202 @@
-Epoch:0   Accuracy:60.39
-Epoch:0   ema_Accuracy:19.60
-Epoch:1   Accuracy:75.67
-Epoch:1   ema_Accuracy:24.91
-Epoch:2   Accuracy:80.89
-Epoch:2   ema_Accuracy:32.45
-Epoch:3   Accuracy:82.00
+Epoch:0   Accuracy:60.40   lr:0.020000
+Epoch:0   ema_Accuracy:19.59
+Epoch:1   Accuracy:75.68   lr:0.020000
+Epoch:1   ema_Accuracy:24.90
+Epoch:2   Accuracy:80.89   lr:0.020000
+Epoch:2   ema_Accuracy:32.43
+Epoch:3   Accuracy:82.00   lr:0.020000
 Epoch:3   ema_Accuracy:42.99
-Epoch:4   Accuracy:82.55
+Epoch:4   Accuracy:82.55   lr:0.020000
 Epoch:4   ema_Accuracy:57.61
-Epoch:5   Accuracy:82.34
+Epoch:5   Accuracy:82.34   lr:0.020000
 Epoch:5   ema_Accuracy:69.84
-Epoch:6   Accuracy:82.73
-Epoch:6   ema_Accuracy:77.42
-Epoch:7   Accuracy:82.49
+Epoch:6   Accuracy:82.73   lr:0.020000
+Epoch:6   ema_Accuracy:77.44
+Epoch:7   Accuracy:82.49   lr:0.020000
 Epoch:7   ema_Accuracy:80.79
-Epoch:8   Accuracy:82.78
+Epoch:8   Accuracy:82.78   lr:0.020000
 Epoch:8   ema_Accuracy:82.19
-Epoch:9   Accuracy:82.71
+Epoch:9   Accuracy:82.71   lr:0.020000
 Epoch:9   ema_Accuracy:82.80
-Epoch:10   Accuracy:85.31
-Epoch:10   ema_Accuracy:18.68
-Epoch:11   Accuracy:87.19
-Epoch:11   ema_Accuracy:9.26
-Epoch:12   Accuracy:87.99
-Epoch:12   ema_Accuracy:10.16
-Epoch:13   Accuracy:87.50
-Epoch:13   ema_Accuracy:10.05
-Epoch:14   Accuracy:86.28
-Epoch:14   ema_Accuracy:10.52
-Epoch:15   Accuracy:85.39
-Epoch:15   ema_Accuracy:9.70
-Epoch:16   Accuracy:81.84
-Epoch:16   ema_Accuracy:11.08
-Epoch:17   Accuracy:82.55
-Epoch:17   ema_Accuracy:10.08
-Epoch:18   Accuracy:83.27
-Epoch:18   ema_Accuracy:10.03
-Epoch:19   Accuracy:80.28
-Epoch:19   ema_Accuracy:9.92
-Epoch:20   Accuracy:83.03
-Epoch:20   ema_Accuracy:13.84
-Epoch:21   Accuracy:78.67
-Epoch:21   ema_Accuracy:66.00
-Epoch:22   Accuracy:81.33
-Epoch:22   ema_Accuracy:79.69
-Epoch:23   Accuracy:79.73
-Epoch:23   ema_Accuracy:85.04
-Epoch:24   Accuracy:82.36
-Epoch:24   ema_Accuracy:85.49
-Epoch:25   Accuracy:83.26
-Epoch:25   ema_Accuracy:86.74
-Epoch:26   Accuracy:80.06
-Epoch:26   ema_Accuracy:87.41
-Epoch:27   Accuracy:83.36
-Epoch:27   ema_Accuracy:85.78
-Epoch:28   Accuracy:83.91
-Epoch:28   ema_Accuracy:86.13
-Epoch:29   Accuracy:84.55
-Epoch:29   ema_Accuracy:85.10
-Epoch:30   Accuracy:80.24
-Epoch:30   ema_Accuracy:86.90
-Epoch:31   Accuracy:84.38
-Epoch:31   ema_Accuracy:86.47
-Epoch:32   Accuracy:82.48
-Epoch:32   ema_Accuracy:87.32
-Epoch:33   Accuracy:84.45
-Epoch:33   ema_Accuracy:87.55
-Epoch:34   Accuracy:83.73
-Epoch:34   ema_Accuracy:86.51
-Epoch:35   Accuracy:84.89
-Epoch:35   ema_Accuracy:87.73
-Epoch:36   Accuracy:83.92
-Epoch:36   ema_Accuracy:86.19
-Epoch:37   Accuracy:82.40
-Epoch:37   ema_Accuracy:86.42
-Epoch:38   Accuracy:86.56
-Epoch:38   ema_Accuracy:88.98
-Epoch:39   Accuracy:83.59
-Epoch:39   ema_Accuracy:88.60
-Epoch:40   Accuracy:85.48
-Epoch:40   ema_Accuracy:88.60
-Epoch:41   Accuracy:84.17
-Epoch:41   ema_Accuracy:88.35
-Epoch:42   Accuracy:83.30
-Epoch:42   ema_Accuracy:87.51
-Epoch:43   Accuracy:84.07
-Epoch:43   ema_Accuracy:87.73
-Epoch:44   Accuracy:84.21
-Epoch:44   ema_Accuracy:88.37
-Epoch:45   Accuracy:84.13
-Epoch:45   ema_Accuracy:86.79
-Epoch:46   Accuracy:85.06
-Epoch:46   ema_Accuracy:88.37
-Epoch:47   Accuracy:84.88
-Epoch:47   ema_Accuracy:89.61
-Epoch:48   Accuracy:83.83
-Epoch:48   ema_Accuracy:87.24
-Epoch:49   Accuracy:86.17
-Epoch:49   ema_Accuracy:85.27
-Epoch:50   Accuracy:83.21
-Epoch:50   ema_Accuracy:88.88
-Epoch:51   Accuracy:85.86
-Epoch:51   ema_Accuracy:88.66
-Epoch:52   Accuracy:81.71
-Epoch:52   ema_Accuracy:88.80
-Epoch:53   Accuracy:85.04
-Epoch:53   ema_Accuracy:89.14
-Epoch:54   Accuracy:86.15
-Epoch:54   ema_Accuracy:88.55
-Epoch:55   Accuracy:85.84
-Epoch:55   ema_Accuracy:88.54
-Epoch:56   Accuracy:86.68
-Epoch:56   ema_Accuracy:88.31
-Epoch:57   Accuracy:85.09
-Epoch:57   ema_Accuracy:89.06
-Epoch:58   Accuracy:84.56
-Epoch:58   ema_Accuracy:89.08
-Epoch:59   Accuracy:83.88
-Epoch:59   ema_Accuracy:87.82
-Epoch:60   Accuracy:85.38
-Epoch:60   ema_Accuracy:89.36
-Epoch:61   Accuracy:84.26
-Epoch:61   ema_Accuracy:89.47
-Epoch:62   Accuracy:84.89
-Epoch:62   ema_Accuracy:89.32
-Epoch:63   Accuracy:84.22
-Epoch:63   ema_Accuracy:88.99
-Epoch:64   Accuracy:83.64
-Epoch:64   ema_Accuracy:88.77
-Epoch:65   Accuracy:85.01
-Epoch:65   ema_Accuracy:89.81
-Epoch:66   Accuracy:86.58
-Epoch:66   ema_Accuracy:89.54
-Epoch:67   Accuracy:86.97
-Epoch:67   ema_Accuracy:90.00
-Epoch:68   Accuracy:85.48
-Epoch:68   ema_Accuracy:87.67
-Epoch:69   Accuracy:85.80
-Epoch:69   ema_Accuracy:89.77
-Epoch:70   Accuracy:87.75
-Epoch:70   ema_Accuracy:88.01
-Epoch:71   Accuracy:86.22
-Epoch:71   ema_Accuracy:89.16
-Epoch:72   Accuracy:84.87
-Epoch:72   ema_Accuracy:89.08
-Epoch:73   Accuracy:85.77
-Epoch:73   ema_Accuracy:88.80
-Epoch:74   Accuracy:86.84
-Epoch:74   ema_Accuracy:89.43
-Epoch:75   Accuracy:87.10
-Epoch:75   ema_Accuracy:89.50
-Epoch:76   Accuracy:87.25
-Epoch:76   ema_Accuracy:90.00
-Epoch:77   Accuracy:86.61
-Epoch:77   ema_Accuracy:89.41
-Epoch:78   Accuracy:85.19
-Epoch:78   ema_Accuracy:89.67
-Epoch:79   Accuracy:85.47
-Epoch:79   ema_Accuracy:90.40
-Epoch:80   Accuracy:84.91
-Epoch:80   ema_Accuracy:88.59
-Epoch:81   Accuracy:86.04
-Epoch:81   ema_Accuracy:89.70
-Epoch:82   Accuracy:87.60
-Epoch:82   ema_Accuracy:88.66
-Epoch:83   Accuracy:85.72
-Epoch:83   ema_Accuracy:90.11
-Epoch:84   Accuracy:87.61
-Epoch:84   ema_Accuracy:89.65
-Epoch:85   Accuracy:87.64
-Epoch:85   ema_Accuracy:88.95
-Epoch:86   Accuracy:87.22
-Epoch:86   ema_Accuracy:88.84
-Epoch:87   Accuracy:88.22
-Epoch:87   ema_Accuracy:89.73
-Epoch:88   Accuracy:86.72
-Epoch:88   ema_Accuracy:89.82
-Epoch:89   Accuracy:87.33
-Epoch:89   ema_Accuracy:90.60
-Epoch:90   Accuracy:88.04
-Epoch:90   ema_Accuracy:89.90
-Epoch:91   Accuracy:86.81
-Epoch:91   ema_Accuracy:90.74
-Epoch:92   Accuracy:87.24
-Epoch:92   ema_Accuracy:90.11
-Epoch:93   Accuracy:88.18
-Epoch:93   ema_Accuracy:90.48
-Epoch:94   Accuracy:88.60
-Epoch:94   ema_Accuracy:89.01
-Epoch:95   Accuracy:88.21
-Epoch:95   ema_Accuracy:90.58
-Epoch:96   Accuracy:86.66
-Epoch:96   ema_Accuracy:88.74
-Epoch:97   Accuracy:87.13
-Epoch:97   ema_Accuracy:90.60
-Epoch:98   Accuracy:88.16
-Epoch:98   ema_Accuracy:90.89
-Epoch:99   Accuracy:86.97
-Epoch:99   ema_Accuracy:89.98
-Epoch:100   Accuracy:88.41
-Epoch:100   ema_Accuracy:91.27
-Epoch:101   Accuracy:88.92
-Epoch:101   ema_Accuracy:91.29
-Epoch:102   Accuracy:87.69
-Epoch:102   ema_Accuracy:89.92
-Epoch:103   Accuracy:85.91
-Epoch:103   ema_Accuracy:90.44
-Epoch:104   Accuracy:88.03
-Epoch:104   ema_Accuracy:90.80
-Epoch:105   Accuracy:88.46
-Epoch:105   ema_Accuracy:91.44
-Epoch:106   Accuracy:89.07
-Epoch:106   ema_Accuracy:88.87
-Epoch:107   Accuracy:89.40
-Epoch:107   ema_Accuracy:89.74
-Epoch:108   Accuracy:88.95
-Epoch:108   ema_Accuracy:90.59
-Epoch:109   Accuracy:89.40
-Epoch:109   ema_Accuracy:91.87
-Epoch:110   Accuracy:88.71
-Epoch:110   ema_Accuracy:91.95
-Epoch:111   Accuracy:88.46
-Epoch:111   ema_Accuracy:91.38
-Epoch:112   Accuracy:89.19
-Epoch:112   ema_Accuracy:91.42
-Epoch:113   Accuracy:87.78
-Epoch:113   ema_Accuracy:91.05
-Epoch:114   Accuracy:89.06
-Epoch:114   ema_Accuracy:91.70
-Epoch:115   Accuracy:89.15
-Epoch:115   ema_Accuracy:91.73
-Epoch:116   Accuracy:89.79
-Epoch:116   ema_Accuracy:91.82
-Epoch:117   Accuracy:89.44
-Epoch:117   ema_Accuracy:91.15
-Epoch:118   Accuracy:89.64
-Epoch:118   ema_Accuracy:91.94
-Epoch:119   Accuracy:89.41
-Epoch:119   ema_Accuracy:91.48
-Epoch:120   Accuracy:89.99
-Epoch:120   ema_Accuracy:91.05
-Epoch:121   Accuracy:89.30
-Epoch:121   ema_Accuracy:91.25
-Epoch:122   Accuracy:90.16
-Epoch:122   ema_Accuracy:92.42
-Epoch:123   Accuracy:90.28
-Epoch:123   ema_Accuracy:92.13
-Epoch:124   Accuracy:90.59
-Epoch:124   ema_Accuracy:91.95
-Epoch:125   Accuracy:90.51
-Epoch:125   ema_Accuracy:92.22
-Epoch:126   Accuracy:90.53
-Epoch:126   ema_Accuracy:92.47
-Epoch:127   Accuracy:90.02
-Epoch:127   ema_Accuracy:92.20
-Epoch:128   Accuracy:90.09
-Epoch:128   ema_Accuracy:91.98
-Epoch:129   Accuracy:91.20
-Epoch:129   ema_Accuracy:92.08
-Epoch:130   Accuracy:91.00
-Epoch:130   ema_Accuracy:92.77
-Epoch:131   Accuracy:90.63
-Epoch:131   ema_Accuracy:92.39
-Epoch:132   Accuracy:90.84
-Epoch:132   ema_Accuracy:92.92
-Epoch:133   Accuracy:90.96
-Epoch:133   ema_Accuracy:92.92
-Epoch:134   Accuracy:91.04
-Epoch:134   ema_Accuracy:92.32
-Epoch:135   Accuracy:90.83
-Epoch:135   ema_Accuracy:93.23
-Epoch:136   Accuracy:90.72
-Epoch:136   ema_Accuracy:92.93
-Epoch:137   Accuracy:91.76
-Epoch:137   ema_Accuracy:93.08
-Epoch:138   Accuracy:91.67
-Epoch:138   ema_Accuracy:93.35
-Epoch:139   Accuracy:92.37
-Epoch:139   ema_Accuracy:93.12
-Epoch:140   Accuracy:91.77
-Epoch:140   ema_Accuracy:93.29
-Epoch:141   Accuracy:92.17
-Epoch:141   ema_Accuracy:93.26
-Epoch:142   Accuracy:92.20
-Epoch:142   ema_Accuracy:93.43
-Epoch:143   Accuracy:92.22
-Epoch:143   ema_Accuracy:93.27
-Epoch:144   Accuracy:92.30
-Epoch:144   ema_Accuracy:93.57
-Epoch:145   Accuracy:92.76
-Epoch:145   ema_Accuracy:93.80
-Epoch:146   Accuracy:92.68
-Epoch:146   ema_Accuracy:93.62
-Epoch:147   Accuracy:92.22
-Epoch:147   ema_Accuracy:93.18
-Epoch:148   Accuracy:92.27
-Epoch:148   ema_Accuracy:93.63
-Epoch:149   Accuracy:92.79
-Epoch:149   ema_Accuracy:93.79
-Epoch:150   Accuracy:92.95
-Epoch:150   ema_Accuracy:93.97
-Epoch:151   Accuracy:92.96
-Epoch:151   ema_Accuracy:93.48
-Epoch:152   Accuracy:93.15
-Epoch:152   ema_Accuracy:93.67
-Epoch:153   Accuracy:93.20
-Epoch:153   ema_Accuracy:94.14
-Epoch:154   Accuracy:93.64
-Epoch:154   ema_Accuracy:92.65
-Epoch:155   Accuracy:93.71
-Epoch:155   ema_Accuracy:93.73
-Epoch:156   Accuracy:93.43
-Epoch:156   ema_Accuracy:94.12
-Epoch:157   Accuracy:94.12
-Epoch:157   ema_Accuracy:94.24
-Epoch:158   Accuracy:94.18
-Epoch:158   ema_Accuracy:94.29
-Epoch:159   Accuracy:94.16
-Epoch:159   ema_Accuracy:94.45
-Epoch:160   Accuracy:94.33
-Epoch:160   ema_Accuracy:94.41
-Epoch:161   Accuracy:94.64
-Epoch:161   ema_Accuracy:94.54
-Epoch:162   Accuracy:94.66
-Epoch:162   ema_Accuracy:94.63
-Epoch:163   Accuracy:94.73
-Epoch:163   ema_Accuracy:94.68
-Epoch:164   Accuracy:94.77
-Epoch:164   ema_Accuracy:94.75
-Epoch:165   Accuracy:94.75
-Epoch:165   ema_Accuracy:94.81
-Epoch:166   Accuracy:94.68
-Epoch:166   ema_Accuracy:94.75
-Epoch:167   Accuracy:94.62
-Epoch:167   ema_Accuracy:94.70
-Epoch:168   Accuracy:94.60
-Epoch:168   ema_Accuracy:94.67
-Epoch:169   Accuracy:94.68
-Epoch:169   ema_Accuracy:94.69
-Epoch:170   Accuracy:94.67
-Epoch:170   ema_Accuracy:94.72
-Epoch:171   Accuracy:94.66
-Epoch:171   ema_Accuracy:94.81
-Epoch:172   Accuracy:94.72
-Epoch:172   ema_Accuracy:94.66
-Epoch:173   Accuracy:94.64
-Epoch:173   ema_Accuracy:94.78
-Epoch:174   Accuracy:94.75
-Epoch:174   ema_Accuracy:94.68
-Epoch:175   Accuracy:94.71
-Epoch:175   ema_Accuracy:94.65
-Epoch:176   Accuracy:94.65
-Epoch:176   ema_Accuracy:94.71
-Epoch:177   Accuracy:94.69
-Epoch:177   ema_Accuracy:94.70
-Epoch:178   Accuracy:94.77
-Epoch:178   ema_Accuracy:94.72
-Epoch:179   Accuracy:94.77
-Epoch:179   ema_Accuracy:94.69
-Epoch:180   Accuracy:94.76
-Epoch:180   ema_Accuracy:94.62
-Epoch:181   Accuracy:94.58
-Epoch:181   ema_Accuracy:94.65
-Epoch:182   Accuracy:94.67
-Epoch:182   ema_Accuracy:94.72
-Epoch:183   Accuracy:94.59
-Epoch:183   ema_Accuracy:94.75
-Epoch:184   Accuracy:94.62
-Epoch:184   ema_Accuracy:94.67
-Epoch:185   Accuracy:94.68
-Epoch:185   ema_Accuracy:94.70
-Epoch:186   Accuracy:94.71
-Epoch:186   ema_Accuracy:94.65
-Epoch:187   Accuracy:94.66
-Epoch:187   ema_Accuracy:94.64
-Epoch:188   Accuracy:94.66
-Epoch:188   ema_Accuracy:94.61
-Epoch:189   Accuracy:94.66
-Epoch:189   ema_Accuracy:94.68
-Epoch:190   Accuracy:94.74
-Epoch:190   ema_Accuracy:94.69
-Epoch:191   Accuracy:94.66
-Epoch:191   ema_Accuracy:94.62
-Epoch:192   Accuracy:94.66
-Epoch:192   ema_Accuracy:94.61
-Epoch:193   Accuracy:94.62
-Epoch:193   ema_Accuracy:94.61
-Epoch:194   Accuracy:94.67
-Epoch:194   ema_Accuracy:94.62
-Epoch:195   Accuracy:94.61
-Epoch:195   ema_Accuracy:94.61
-Epoch:196   Accuracy:94.65
-Epoch:196   ema_Accuracy:94.59
-Epoch:197   Accuracy:94.64
-Epoch:197   ema_Accuracy:94.60
-Epoch:198   Accuracy:94.71
-Epoch:198   ema_Accuracy:94.64
-Epoch:199   Accuracy:94.59
-Epoch:199   ema_Accuracy:94.60
-Epoch:200   Accuracy:94.70
-Epoch:200   ema_Accuracy:94.57
-Epoch:201   Accuracy:94.66
-Epoch:201   ema_Accuracy:94.62
-Epoch:202   Accuracy:94.62
-Epoch:202   ema_Accuracy:94.68
-Epoch:203   Accuracy:94.64
-Epoch:203   ema_Accuracy:94.66
-Epoch:204   Accuracy:94.69
-Epoch:204   ema_Accuracy:94.67
-Epoch:205   Accuracy:94.63
-Epoch:205   ema_Accuracy:94.65
-Epoch:206   Accuracy:94.54
-Epoch:206   ema_Accuracy:94.60
-Epoch:207   Accuracy:94.55
-Epoch:207   ema_Accuracy:94.60
-Epoch:208   Accuracy:94.64
-Epoch:208   ema_Accuracy:94.65
-Epoch:209   Accuracy:94.67
-Epoch:209   ema_Accuracy:94.63
-Epoch:210   Accuracy:94.69
-Epoch:210   ema_Accuracy:94.66
-Epoch:211   Accuracy:94.74
-Epoch:211   ema_Accuracy:94.73
-Epoch:212   Accuracy:94.70
-Epoch:212   ema_Accuracy:94.71
-Epoch:213   Accuracy:94.72
-Epoch:213   ema_Accuracy:94.69
-Epoch:214   Accuracy:94.62
-Epoch:214   ema_Accuracy:94.70
-Epoch:215   Accuracy:94.69
-Epoch:215   ema_Accuracy:94.73
-Epoch:216   Accuracy:94.68
-Epoch:216   ema_Accuracy:94.71
-Epoch:217   Accuracy:94.62
-Epoch:217   ema_Accuracy:94.72
-Epoch:218   Accuracy:94.72
-Epoch:218   ema_Accuracy:94.71
-Epoch:219   Accuracy:94.69
-Epoch:219   ema_Accuracy:94.75
-Epoch:220   Accuracy:94.73
-Epoch:220   ema_Accuracy:94.64
-Epoch:221   Accuracy:94.77
-Epoch:221   ema_Accuracy:94.66
-Epoch:222   Accuracy:94.66
-Epoch:222   ema_Accuracy:94.69
-Epoch:223   Accuracy:94.77
-Epoch:223   ema_Accuracy:94.72
-Epoch:224   Accuracy:94.65
-Epoch:224   ema_Accuracy:94.68
-Epoch:225   Accuracy:94.76
-Epoch:225   ema_Accuracy:94.74
-Epoch:226   Accuracy:94.63
-Epoch:226   ema_Accuracy:94.62
-Epoch:227   Accuracy:94.65
-Epoch:227   ema_Accuracy:94.59
-Epoch:228   Accuracy:94.67
-Epoch:228   ema_Accuracy:94.70
-Epoch:229   Accuracy:94.74
-Epoch:229   ema_Accuracy:94.76
-Epoch:230   Accuracy:94.66
-Epoch:230   ema_Accuracy:94.71
-Epoch:231   Accuracy:94.78
-Epoch:231   ema_Accuracy:94.74
-Epoch:232   Accuracy:94.79
-Epoch:232   ema_Accuracy:94.73
-Epoch:233   Accuracy:94.78
-Epoch:233   ema_Accuracy:94.69
-Epoch:234   Accuracy:94.86
-Epoch:234   ema_Accuracy:94.77
-Epoch:235   Accuracy:94.77
-Epoch:235   ema_Accuracy:94.87
-Epoch:236   Accuracy:94.78
-Epoch:236   ema_Accuracy:94.76
-Epoch:237   Accuracy:94.85
-Epoch:237   ema_Accuracy:94.82
-Epoch:238   Accuracy:94.85
-Epoch:238   ema_Accuracy:94.71
-Epoch:239   Accuracy:94.75
-Epoch:239   ema_Accuracy:94.76
-Epoch:240   Accuracy:94.70
-Epoch:240   ema_Accuracy:94.67
-Epoch:241   Accuracy:94.62
-Epoch:241   ema_Accuracy:94.70
-Epoch:242   Accuracy:94.72
-Epoch:242   ema_Accuracy:94.77
-Epoch:243   Accuracy:94.64
-Epoch:243   ema_Accuracy:94.81
-Epoch:244   Accuracy:94.63
-Epoch:244   ema_Accuracy:94.76
-Epoch:245   Accuracy:94.67
-Epoch:245   ema_Accuracy:94.76
-Epoch:246   Accuracy:94.76
-Epoch:246   ema_Accuracy:94.61
-Epoch:247   Accuracy:94.65
-Epoch:247   ema_Accuracy:94.69
-Epoch:248   Accuracy:94.50
-Epoch:248   ema_Accuracy:94.62
-Epoch:249   Accuracy:94.56
-Epoch:249   ema_Accuracy:94.62
-Epoch:250   Accuracy:94.59
-Epoch:250   ema_Accuracy:94.55
-Epoch:251   Accuracy:94.67
-Epoch:251   ema_Accuracy:94.69
-Epoch:252   Accuracy:94.80
-Epoch:252   ema_Accuracy:94.65
-Epoch:253   Accuracy:94.64
-Epoch:253   ema_Accuracy:94.71
-Epoch:254   Accuracy:94.74
-Epoch:254   ema_Accuracy:94.68
-Epoch:255   Accuracy:94.66
-Epoch:255   ema_Accuracy:94.68
-Epoch:256   Accuracy:94.58
-Epoch:256   ema_Accuracy:94.64
-Epoch:257   Accuracy:94.67
-Epoch:257   ema_Accuracy:94.72
-Epoch:258   Accuracy:94.77
-Epoch:258   ema_Accuracy:94.77
-Epoch:259   Accuracy:94.67
-Epoch:259   ema_Accuracy:94.72
-Epoch:260   Accuracy:94.68
-Epoch:260   ema_Accuracy:94.69
-Epoch:261   Accuracy:94.69
-Epoch:261   ema_Accuracy:94.72
-Epoch:262   Accuracy:94.67
-Epoch:262   ema_Accuracy:94.73
-Epoch:263   Accuracy:94.76
-Epoch:263   ema_Accuracy:94.76
-Epoch:264   Accuracy:94.66
-Epoch:264   ema_Accuracy:94.77
-Epoch:265   Accuracy:94.71
-Epoch:265   ema_Accuracy:94.77
-Epoch:266   Accuracy:94.69
-Epoch:266   ema_Accuracy:94.81
-Epoch:267   Accuracy:94.62
-Epoch:267   ema_Accuracy:94.69
-Epoch:268   Accuracy:94.76
-Epoch:268   ema_Accuracy:94.76
-Epoch:269   Accuracy:94.68
-Epoch:269   ema_Accuracy:94.70
-Epoch:270   Accuracy:94.75
-Epoch:270   ema_Accuracy:94.64
-Epoch:271   Accuracy:94.78
-Epoch:271   ema_Accuracy:94.76
-Epoch:272   Accuracy:94.72
-Epoch:272   ema_Accuracy:94.72
-Epoch:273   Accuracy:94.88
-Epoch:273   ema_Accuracy:94.75
-Epoch:274   Accuracy:94.75
-Epoch:274   ema_Accuracy:94.74
-Epoch:275   Accuracy:94.82
-Epoch:275   ema_Accuracy:94.78
-Epoch:276   Accuracy:94.78
-Epoch:276   ema_Accuracy:94.79
-Epoch:277   Accuracy:94.68
-Epoch:277   ema_Accuracy:94.90
-Epoch:278   Accuracy:94.73
-Epoch:278   ema_Accuracy:94.76
-Epoch:279   Accuracy:94.63
-Epoch:279   ema_Accuracy:94.70
-Epoch:280   Accuracy:94.60
-Epoch:280   ema_Accuracy:94.74
-Epoch:281   Accuracy:94.55
-Epoch:281   ema_Accuracy:94.74
-Epoch:282   Accuracy:94.56
-Epoch:282   ema_Accuracy:94.70
-Epoch:283   Accuracy:94.60
-Epoch:283   ema_Accuracy:94.68
-Epoch:284   Accuracy:94.63
-Epoch:284   ema_Accuracy:94.64
-Epoch:285   Accuracy:94.63
-Epoch:285   ema_Accuracy:94.64
-Epoch:286   Accuracy:94.61
-Epoch:286   ema_Accuracy:94.69
-Epoch:287   Accuracy:94.65
-Epoch:287   ema_Accuracy:94.72
-Epoch:288   Accuracy:94.75
-Epoch:288   ema_Accuracy:94.65
-Epoch:289   Accuracy:94.70
-Epoch:289   ema_Accuracy:94.74
-Epoch:290   Accuracy:94.56
-Epoch:290   ema_Accuracy:94.74
-Epoch:291   Accuracy:94.75
-Epoch:291   ema_Accuracy:94.72
-Epoch:292   Accuracy:94.66
-Epoch:292   ema_Accuracy:94.69
-Epoch:293   Accuracy:94.72
-Epoch:293   ema_Accuracy:94.70
-Epoch:294   Accuracy:94.65
-Epoch:294   ema_Accuracy:94.63
-Epoch:295   Accuracy:94.63
-Epoch:295   ema_Accuracy:94.64
-Epoch:296   Accuracy:94.77
-Epoch:296   ema_Accuracy:94.68
-Epoch:297   Accuracy:94.70
-Epoch:297   ema_Accuracy:94.74
-Epoch:298   Accuracy:94.67
-Epoch:298   ema_Accuracy:94.61
-Epoch:299   Accuracy:94.73
-Epoch:299   ema_Accuracy:94.68
-Epoch:300   Accuracy:94.66
-Epoch:300   ema_Accuracy:94.59
-Epoch:301   Accuracy:94.72
-Epoch:301   ema_Accuracy:94.71
-Epoch:302   Accuracy:94.65
-Epoch:302   ema_Accuracy:94.71
-Epoch:303   Accuracy:94.73
-Epoch:303   ema_Accuracy:94.67
-Epoch:304   Accuracy:94.63
-Epoch:304   ema_Accuracy:94.61
-Epoch:305   Accuracy:94.71
-Epoch:305   ema_Accuracy:94.69
-Epoch:306   Accuracy:94.62
-Epoch:306   ema_Accuracy:94.66
-Epoch:307   Accuracy:94.68
-Epoch:307   ema_Accuracy:94.72
-Epoch:308   Accuracy:94.72
-Epoch:308   ema_Accuracy:94.73
-Epoch:309   Accuracy:94.75
-Epoch:309   ema_Accuracy:94.75
-Epoch:310   Accuracy:94.77
-Epoch:310   ema_Accuracy:94.78
-Epoch:311   Accuracy:94.72
-Epoch:311   ema_Accuracy:94.73
-Epoch:312   Accuracy:94.71
-Epoch:312   ema_Accuracy:94.75
-Epoch:313   Accuracy:94.73
-Epoch:313   ema_Accuracy:94.71
-Epoch:314   Accuracy:94.65
-Epoch:314   ema_Accuracy:94.79
-Epoch:315   Accuracy:94.63
-Epoch:315   ema_Accuracy:94.71
-Epoch:316   Accuracy:94.74
-Epoch:316   ema_Accuracy:94.68
-Epoch:317   Accuracy:94.76
-Epoch:317   ema_Accuracy:94.69
-Epoch:318   Accuracy:94.75
-Epoch:318   ema_Accuracy:94.70
-Epoch:319   Accuracy:94.72
-Epoch:319   ema_Accuracy:94.70
-Epoch:320   Accuracy:94.72
-Epoch:320   ema_Accuracy:94.67
-Epoch:321   Accuracy:94.62
-Epoch:321   ema_Accuracy:94.59
-Epoch:322   Accuracy:94.66
-Epoch:322   ema_Accuracy:94.70
-Epoch:323   Accuracy:94.70
-Epoch:323   ema_Accuracy:94.79
-Epoch:324   Accuracy:94.73
-Epoch:324   ema_Accuracy:94.80
-Epoch:325   Accuracy:94.71
-Epoch:325   ema_Accuracy:94.79
-Epoch:326   Accuracy:94.73
-Epoch:326   ema_Accuracy:94.73
-Epoch:327   Accuracy:94.75
-Epoch:327   ema_Accuracy:94.76
-Epoch:328   Accuracy:94.72
-Epoch:328   ema_Accuracy:94.71
-Epoch:329   Accuracy:94.57
-Epoch:329   ema_Accuracy:94.65
-Epoch:330   Accuracy:94.62
-Epoch:330   ema_Accuracy:94.68
-Epoch:331   Accuracy:94.59
-Epoch:331   ema_Accuracy:94.70
-Epoch:332   Accuracy:94.61
-Epoch:332   ema_Accuracy:94.65
-Epoch:333   Accuracy:94.64
-Epoch:333   ema_Accuracy:94.61
-Epoch:334   Accuracy:94.69
-Epoch:334   ema_Accuracy:94.71
-Epoch:335   Accuracy:94.66
-Epoch:335   ema_Accuracy:94.60
-Epoch:336   Accuracy:94.58
-Epoch:336   ema_Accuracy:94.68
-Epoch:337   Accuracy:94.68
-Epoch:337   ema_Accuracy:94.65
-Epoch:338   Accuracy:94.66
-Epoch:338   ema_Accuracy:94.69
-Epoch:339   Accuracy:94.60
-Epoch:339   ema_Accuracy:94.65
-Epoch:340   Accuracy:94.69
-Epoch:340   ema_Accuracy:94.68
-Epoch:341   Accuracy:94.66
-Epoch:341   ema_Accuracy:94.65
-Epoch:342   Accuracy:94.65
-Epoch:342   ema_Accuracy:94.66
-Epoch:343   Accuracy:94.52
-Epoch:343   ema_Accuracy:94.62
-Epoch:344   Accuracy:94.65
-Epoch:344   ema_Accuracy:94.67
-Epoch:345   Accuracy:94.58
-Epoch:345   ema_Accuracy:94.67
-Epoch:346   Accuracy:94.51
-Epoch:346   ema_Accuracy:94.57
-Epoch:347   Accuracy:94.62
-Epoch:347   ema_Accuracy:94.63
-Epoch:348   Accuracy:94.62
-Epoch:348   ema_Accuracy:94.61
-Epoch:349   Accuracy:94.51
-Epoch:349   ema_Accuracy:94.47
-Epoch:350   Accuracy:94.66
-Epoch:350   ema_Accuracy:94.55
-Epoch:351   Accuracy:94.66
-Epoch:351   ema_Accuracy:94.62
-Epoch:352   Accuracy:94.63
-Epoch:352   ema_Accuracy:94.65
-Epoch:353   Accuracy:94.57
-Epoch:353   ema_Accuracy:94.63
-Epoch:354   Accuracy:94.49
-Epoch:354   ema_Accuracy:94.58
-Epoch:355   Accuracy:94.48
-Epoch:355   ema_Accuracy:94.54
-Epoch:356   Accuracy:94.60
-Epoch:356   ema_Accuracy:94.57
-Epoch:357   Accuracy:94.67
-Epoch:357   ema_Accuracy:94.55
-Epoch:358   Accuracy:94.80
-Epoch:358   ema_Accuracy:94.58
-Epoch:359   Accuracy:94.66
-Epoch:359   ema_Accuracy:94.55
-Epoch:360   Accuracy:94.63
-Epoch:360   ema_Accuracy:94.64
-Epoch:361   Accuracy:94.62
-Epoch:361   ema_Accuracy:94.62
-Epoch:362   Accuracy:94.67
-Epoch:362   ema_Accuracy:94.67
-Epoch:363   Accuracy:94.72
-Epoch:363   ema_Accuracy:94.75
-Epoch:364   Accuracy:94.71
-Epoch:364   ema_Accuracy:94.76
-Epoch:365   Accuracy:94.80
-Epoch:365   ema_Accuracy:94.84
-Epoch:366   Accuracy:94.73
-Epoch:366   ema_Accuracy:94.79
-Epoch:367   Accuracy:94.66
-Epoch:367   ema_Accuracy:94.66
-Epoch:368   Accuracy:94.64
-Epoch:368   ema_Accuracy:94.76
-Epoch:369   Accuracy:94.72
-Epoch:369   ema_Accuracy:94.71
-Epoch:370   Accuracy:94.70
-Epoch:370   ema_Accuracy:94.80
-Epoch:371   Accuracy:94.59
-Epoch:371   ema_Accuracy:94.70
-Epoch:372   Accuracy:94.65
-Epoch:372   ema_Accuracy:94.72
-Epoch:373   Accuracy:94.62
-Epoch:373   ema_Accuracy:94.56
-Epoch:374   Accuracy:94.69
-Epoch:374   ema_Accuracy:94.61
-Epoch:375   Accuracy:94.74
-Epoch:375   ema_Accuracy:94.63
-Epoch:376   Accuracy:94.77
-Epoch:376   ema_Accuracy:94.65
-Epoch:377   Accuracy:94.65
-Epoch:377   ema_Accuracy:94.61
-Epoch:378   Accuracy:94.68
-Epoch:378   ema_Accuracy:94.67
-Epoch:379   Accuracy:94.67
-Epoch:379   ema_Accuracy:94.64
-Epoch:380   Accuracy:94.60
-Epoch:380   ema_Accuracy:94.60
-Epoch:381   Accuracy:94.64
-Epoch:381   ema_Accuracy:94.64
-Epoch:382   Accuracy:94.67
-Epoch:382   ema_Accuracy:94.63
-Epoch:383   Accuracy:94.69
-Epoch:383   ema_Accuracy:94.67
-Epoch:384   Accuracy:94.73
-Epoch:384   ema_Accuracy:94.75
-Epoch:385   Accuracy:94.79
-Epoch:385   ema_Accuracy:94.71
-Epoch:386   Accuracy:94.67
-Epoch:386   ema_Accuracy:94.69
-Epoch:387   Accuracy:94.70
-Epoch:387   ema_Accuracy:94.63
-Epoch:388   Accuracy:94.75
-Epoch:388   ema_Accuracy:94.65
-Epoch:389   Accuracy:94.73
-Epoch:389   ema_Accuracy:94.69
-Epoch:390   Accuracy:94.77
-Epoch:390   ema_Accuracy:94.76
-Epoch:391   Accuracy:94.75
-Epoch:391   ema_Accuracy:94.80
-Epoch:392   Accuracy:94.83
-Epoch:392   ema_Accuracy:94.75
-Epoch:393   Accuracy:94.74
-Epoch:393   ema_Accuracy:94.81
-Epoch:394   Accuracy:94.74
-Epoch:394   ema_Accuracy:94.75
-Epoch:395   Accuracy:94.74
-Epoch:395   ema_Accuracy:94.80
-Epoch:396   Accuracy:94.77
-Epoch:396   ema_Accuracy:94.78
-Epoch:397   Accuracy:94.70
-Epoch:397   ema_Accuracy:94.73
-Epoch:398   Accuracy:94.69
-Epoch:398   ema_Accuracy:94.71
-Epoch:399   Accuracy:94.63
-Epoch:399   ema_Accuracy:94.72
-Epoch:400   Accuracy:94.72
-Epoch:400   ema_Accuracy:94.74
-Epoch:401   Accuracy:94.66
-Epoch:401   ema_Accuracy:94.76
-Epoch:402   Accuracy:94.73
-Epoch:402   ema_Accuracy:94.74
-Epoch:403   Accuracy:94.69
-Epoch:403   ema_Accuracy:94.70
-Epoch:404   Accuracy:94.75
-Epoch:404   ema_Accuracy:94.67
-Epoch:405   Accuracy:94.75
-Epoch:405   ema_Accuracy:94.82
-Epoch:406   Accuracy:94.78
-Epoch:406   ema_Accuracy:94.74
-Epoch:407   Accuracy:94.75
-Epoch:407   ema_Accuracy:94.76
-Epoch:408   Accuracy:94.80
-Epoch:408   ema_Accuracy:94.82
-Epoch:409   Accuracy:94.60
-Epoch:409   ema_Accuracy:94.73
-Epoch:410   Accuracy:94.78
-Epoch:410   ema_Accuracy:94.71
-Epoch:411   Accuracy:94.68
-Epoch:411   ema_Accuracy:94.74
-Epoch:412   Accuracy:94.60
-Epoch:412   ema_Accuracy:94.66
-Epoch:413   Accuracy:94.65
-Epoch:413   ema_Accuracy:94.69
-Epoch:414   Accuracy:94.62
-Epoch:414   ema_Accuracy:94.64
-Epoch:415   Accuracy:94.64
-Epoch:415   ema_Accuracy:94.63
-Epoch:416   Accuracy:94.64
-Epoch:416   ema_Accuracy:94.61
-Epoch:417   Accuracy:94.70
-Epoch:417   ema_Accuracy:94.63
-Epoch:418   Accuracy:94.76
-Epoch:418   ema_Accuracy:94.65
-Epoch:419   Accuracy:94.74
-Epoch:419   ema_Accuracy:94.67
-Epoch:420   Accuracy:94.71
-Epoch:420   ema_Accuracy:94.74
-Epoch:421   Accuracy:94.59
-Epoch:421   ema_Accuracy:94.66
-Epoch:422   Accuracy:94.66
-Epoch:422   ema_Accuracy:94.73
-Epoch:423   Accuracy:94.74
-Epoch:423   ema_Accuracy:94.65
-Epoch:424   Accuracy:94.75
-Epoch:424   ema_Accuracy:94.69
-Epoch:425   Accuracy:94.67
-Epoch:425   ema_Accuracy:94.74
-Epoch:426   Accuracy:94.79
-Epoch:426   ema_Accuracy:94.71
-Epoch:427   Accuracy:94.74
-Epoch:427   ema_Accuracy:94.69
-Epoch:428   Accuracy:94.58
-Epoch:428   ema_Accuracy:94.77
-Epoch:429   Accuracy:94.73
-Epoch:429   ema_Accuracy:94.79
-Epoch:430   Accuracy:94.70
-Epoch:430   ema_Accuracy:94.79
-Epoch:431   Accuracy:94.88
-Epoch:431   ema_Accuracy:94.81
-Epoch:432   Accuracy:94.84
-Epoch:432   ema_Accuracy:94.87
-Epoch:433   Accuracy:94.82
-Epoch:433   ema_Accuracy:94.77
-Epoch:434   Accuracy:94.86
-Epoch:434   ema_Accuracy:94.81
+Epoch:10   Accuracy:84.75   lr:0.020000
+Epoch:10   ema_Accuracy:18.62
+Epoch:11   Accuracy:87.12   lr:0.019999
+Epoch:11   ema_Accuracy:9.14
+Epoch:12   Accuracy:87.24   lr:0.019998
+Epoch:12   ema_Accuracy:10.67
+Epoch:13   Accuracy:87.46   lr:0.019996
+Epoch:13   ema_Accuracy:10.50
+Epoch:14   Accuracy:86.53   lr:0.019993
+Epoch:14   ema_Accuracy:10.40
+Epoch:15   Accuracy:84.39   lr:0.019991
+Epoch:15   ema_Accuracy:9.11
+Epoch:16   Accuracy:82.40   lr:0.019987
+Epoch:16   ema_Accuracy:9.64
+Epoch:17   Accuracy:77.94   lr:0.019983
+Epoch:17   ema_Accuracy:9.15
+Epoch:18   Accuracy:80.46   lr:0.019979
+Epoch:18   ema_Accuracy:10.72
+Epoch:19   Accuracy:81.27   lr:0.019974
+Epoch:19   ema_Accuracy:10.02
+Epoch:20   Accuracy:82.19   lr:0.019969
+Epoch:20   ema_Accuracy:19.82
+Epoch:21   Accuracy:80.35   lr:0.019963
+Epoch:21   ema_Accuracy:63.99
+Epoch:22   Accuracy:80.10   lr:0.019956
+Epoch:22   ema_Accuracy:81.94
+Epoch:23   Accuracy:79.41   lr:0.019949
+Epoch:23   ema_Accuracy:85.61
+Epoch:24   Accuracy:83.09   lr:0.019942
+Epoch:24   ema_Accuracy:85.58
+Epoch:25   Accuracy:81.62   lr:0.019934
+Epoch:25   ema_Accuracy:87.23
+Epoch:26   Accuracy:82.80   lr:0.019925
+Epoch:26   ema_Accuracy:86.65
+Epoch:27   Accuracy:83.10   lr:0.019916
+Epoch:27   ema_Accuracy:85.73
+Epoch:28   Accuracy:84.70   lr:0.019907
+Epoch:28   ema_Accuracy:87.19
+Epoch:29   Accuracy:83.15   lr:0.019896
+Epoch:29   ema_Accuracy:87.80
+Epoch:30   Accuracy:83.39   lr:0.019886
+Epoch:30   ema_Accuracy:87.38
+Epoch:31   Accuracy:82.20   lr:0.019875
+Epoch:31   ema_Accuracy:84.81
+Epoch:32   Accuracy:82.09   lr:0.019863
+Epoch:32   ema_Accuracy:86.72
+Epoch:33   Accuracy:82.14   lr:0.019851
+Epoch:33   ema_Accuracy:86.44
+Epoch:34   Accuracy:83.68   lr:0.019838
+Epoch:34   ema_Accuracy:87.55
+Epoch:35   Accuracy:82.74   lr:0.019825
+Epoch:35   ema_Accuracy:87.05
+Epoch:36   Accuracy:83.43   lr:0.019811
+Epoch:36   ema_Accuracy:87.69
+Epoch:37   Accuracy:82.71   lr:0.019797
+Epoch:37   ema_Accuracy:87.89
+Epoch:38   Accuracy:82.88   lr:0.019783
+Epoch:38   ema_Accuracy:87.01
+Epoch:39   Accuracy:84.35   lr:0.019767
+Epoch:39   ema_Accuracy:87.95
+Epoch:40   Accuracy:82.29   lr:0.019752
+Epoch:40   ema_Accuracy:86.59
+Epoch:41   Accuracy:86.00   lr:0.019735
+Epoch:41   ema_Accuracy:86.94
+Epoch:42   Accuracy:81.14   lr:0.019718
+Epoch:42   ema_Accuracy:88.23
+Epoch:43   Accuracy:84.90   lr:0.019701
+Epoch:43   ema_Accuracy:86.36
+Epoch:44   Accuracy:84.75   lr:0.019683
+Epoch:44   ema_Accuracy:88.91
+Epoch:45   Accuracy:84.66   lr:0.019665
+Epoch:45   ema_Accuracy:87.06
+Epoch:46   Accuracy:84.02   lr:0.019646
+Epoch:46   ema_Accuracy:87.59
+Epoch:47   Accuracy:84.37   lr:0.019627
+Epoch:47   ema_Accuracy:87.51
+Epoch:48   Accuracy:82.69   lr:0.019607
+Epoch:48   ema_Accuracy:87.98
+Epoch:49   Accuracy:84.74   lr:0.019587
+Epoch:49   ema_Accuracy:88.57
+Epoch:50   Accuracy:84.91   lr:0.019566
+Epoch:50   ema_Accuracy:88.07
+Epoch:51   Accuracy:85.61   lr:0.019544
+Epoch:51   ema_Accuracy:87.40
+Epoch:52   Accuracy:85.52   lr:0.019523
+Epoch:52   ema_Accuracy:89.12
+Epoch:53   Accuracy:85.11   lr:0.019500
+Epoch:53   ema_Accuracy:88.71
+Epoch:54   Accuracy:83.64   lr:0.019477
+Epoch:54   ema_Accuracy:88.80
+Epoch:55   Accuracy:83.31   lr:0.019454
+Epoch:55   ema_Accuracy:88.93
+Epoch:56   Accuracy:85.24   lr:0.019430
+Epoch:56   ema_Accuracy:87.02
+Epoch:57   Accuracy:81.15   lr:0.019406
+Epoch:57   ema_Accuracy:89.44
+Epoch:58   Accuracy:82.52   lr:0.019381
+Epoch:58   ema_Accuracy:85.58
+Epoch:59   Accuracy:85.08   lr:0.019355
+Epoch:59   ema_Accuracy:87.72
+Epoch:60   Accuracy:83.29   lr:0.019329
+Epoch:60   ema_Accuracy:88.54
+Epoch:61   Accuracy:85.22   lr:0.019303
+Epoch:61   ema_Accuracy:88.09
+Epoch:62   Accuracy:84.52   lr:0.019276
+Epoch:62   ema_Accuracy:88.60
+Epoch:63   Accuracy:83.28   lr:0.019249
+Epoch:63   ema_Accuracy:88.13
+Epoch:64   Accuracy:83.50   lr:0.019221
+Epoch:64   ema_Accuracy:86.75
+Epoch:65   Accuracy:82.85   lr:0.019192
+Epoch:65   ema_Accuracy:88.18
+Epoch:66   Accuracy:85.98   lr:0.019163
+Epoch:66   ema_Accuracy:88.63
+Epoch:67   Accuracy:85.47   lr:0.019134
+Epoch:67   ema_Accuracy:88.46
+Epoch:68   Accuracy:84.82   lr:0.019104
+Epoch:68   ema_Accuracy:86.99
+Epoch:69   Accuracy:85.37   lr:0.019074
+Epoch:69   ema_Accuracy:87.80
+Epoch:70   Accuracy:83.21   lr:0.019043
+Epoch:70   ema_Accuracy:88.59
+Epoch:71   Accuracy:83.91   lr:0.019011
+Epoch:71   ema_Accuracy:88.64
+Epoch:72   Accuracy:84.45   lr:0.018980
+Epoch:72   ema_Accuracy:87.96
+Epoch:73   Accuracy:85.39   lr:0.018947
+Epoch:73   ema_Accuracy:89.22
+Epoch:74   Accuracy:85.45   lr:0.018914
+Epoch:74   ema_Accuracy:88.78
+Epoch:75   Accuracy:85.62   lr:0.018881
+Epoch:75   ema_Accuracy:89.25
+Epoch:76   Accuracy:85.82   lr:0.018847
+Epoch:76   ema_Accuracy:89.41
+Epoch:77   Accuracy:84.27   lr:0.018813
+Epoch:77   ema_Accuracy:89.52
+Epoch:78   Accuracy:85.69   lr:0.018778
+Epoch:78   ema_Accuracy:85.72
+Epoch:79   Accuracy:86.47   lr:0.018743
+Epoch:79   ema_Accuracy:88.81
+Epoch:80   Accuracy:84.54   lr:0.018707
+Epoch:80   ema_Accuracy:89.01
+Epoch:81   Accuracy:84.20   lr:0.018670
+Epoch:81   ema_Accuracy:89.52
+Epoch:82   Accuracy:85.50   lr:0.018634
+Epoch:82   ema_Accuracy:89.10
+Epoch:83   Accuracy:82.67   lr:0.018596
+Epoch:83   ema_Accuracy:89.13
+Epoch:84   Accuracy:85.82   lr:0.018559
+Epoch:84   ema_Accuracy:89.18
+Epoch:85   Accuracy:85.82   lr:0.018520
+Epoch:85   ema_Accuracy:88.34
+Epoch:86   Accuracy:84.86   lr:0.018482
+Epoch:86   ema_Accuracy:89.40
+Epoch:87   Accuracy:86.38   lr:0.018442
+Epoch:87   ema_Accuracy:89.98
+Epoch:88   Accuracy:85.48   lr:0.018403
+Epoch:88   ema_Accuracy:88.76
+Epoch:89   Accuracy:85.83   lr:0.018363
+Epoch:89   ema_Accuracy:89.81
+Epoch:90   Accuracy:85.12   lr:0.018322
+Epoch:90   ema_Accuracy:88.60
+Epoch:91   Accuracy:84.94   lr:0.018281
+Epoch:91   ema_Accuracy:89.97
+Epoch:92   Accuracy:86.92   lr:0.018239
+Epoch:92   ema_Accuracy:89.06
+Epoch:93   Accuracy:85.78   lr:0.018197
+Epoch:93   ema_Accuracy:88.91
+Epoch:94   Accuracy:85.51   lr:0.018155
+Epoch:94   ema_Accuracy:89.47
+Epoch:95   Accuracy:84.73   lr:0.018112
+Epoch:95   ema_Accuracy:89.47
+Epoch:96   Accuracy:86.61   lr:0.018068
+Epoch:96   ema_Accuracy:89.28
+Epoch:97   Accuracy:85.55   lr:0.018024
+Epoch:97   ema_Accuracy:87.72
+Epoch:98   Accuracy:85.54   lr:0.017980
+Epoch:98   ema_Accuracy:89.60
+Epoch:99   Accuracy:87.12   lr:0.017935
+Epoch:99   ema_Accuracy:89.75
+Epoch:100   Accuracy:86.31   lr:0.017889
+Epoch:100   ema_Accuracy:88.70
+Epoch:101   Accuracy:87.53   lr:0.017844
+Epoch:101   ema_Accuracy:88.97
+Epoch:102   Accuracy:86.21   lr:0.017797
+Epoch:102   ema_Accuracy:89.20
+Epoch:103   Accuracy:86.61   lr:0.017751
+Epoch:103   ema_Accuracy:89.38
+Epoch:104   Accuracy:85.22   lr:0.017703
+Epoch:104   ema_Accuracy:90.03
+Epoch:105   Accuracy:87.82   lr:0.017656
+Epoch:105   ema_Accuracy:89.82
+Epoch:106   Accuracy:87.27   lr:0.017608
+Epoch:106   ema_Accuracy:90.30
+Epoch:107   Accuracy:86.85   lr:0.017559
+Epoch:107   ema_Accuracy:89.45
+Epoch:108   Accuracy:86.23   lr:0.017510
+Epoch:108   ema_Accuracy:89.29
+Epoch:109   Accuracy:81.47   lr:0.017460
+Epoch:109   ema_Accuracy:89.69
+Epoch:110   Accuracy:85.63   lr:0.017410
+Epoch:110   ema_Accuracy:90.77
+Epoch:111   Accuracy:85.37   lr:0.017360
+Epoch:111   ema_Accuracy:90.40
+Epoch:112   Accuracy:85.23   lr:0.017309
+Epoch:112   ema_Accuracy:88.73
+Epoch:113   Accuracy:86.10   lr:0.017258
+Epoch:113   ema_Accuracy:88.45
+Epoch:114   Accuracy:86.12   lr:0.017206
+Epoch:114   ema_Accuracy:89.68
+Epoch:115   Accuracy:85.92   lr:0.017154
+Epoch:115   ema_Accuracy:90.18
+Epoch:116   Accuracy:86.28   lr:0.017101
+Epoch:116   ema_Accuracy:89.80
+Epoch:117   Accuracy:86.77   lr:0.017048
+Epoch:117   ema_Accuracy:90.23
+Epoch:118   Accuracy:85.28   lr:0.016995
+Epoch:118   ema_Accuracy:88.03
+Epoch:119   Accuracy:86.14   lr:0.016941
+Epoch:119   ema_Accuracy:89.78
+Epoch:120   Accuracy:86.29   lr:0.016886
+Epoch:120   ema_Accuracy:90.25
+Epoch:121   Accuracy:84.83   lr:0.016831
+Epoch:121   ema_Accuracy:89.09
+Epoch:122   Accuracy:86.65   lr:0.016776
+Epoch:122   ema_Accuracy:89.81
+Epoch:123   Accuracy:86.29   lr:0.016720
+Epoch:123   ema_Accuracy:90.59
+Epoch:124   Accuracy:84.29   lr:0.016664
+Epoch:124   ema_Accuracy:89.15
+Epoch:125   Accuracy:88.61   lr:0.016607
+Epoch:125   ema_Accuracy:90.28
+Epoch:126   Accuracy:84.82   lr:0.016550
+Epoch:126   ema_Accuracy:90.67
+Epoch:127   Accuracy:88.18   lr:0.016493
+Epoch:127   ema_Accuracy:89.53
+Epoch:128   Accuracy:87.89   lr:0.016435
+Epoch:128   ema_Accuracy:90.82
+Epoch:129   Accuracy:85.64   lr:0.016376
+Epoch:129   ema_Accuracy:88.57
+Epoch:130   Accuracy:85.37   lr:0.016318
+Epoch:130   ema_Accuracy:89.32
+Epoch:131   Accuracy:85.64   lr:0.016259
+Epoch:131   ema_Accuracy:90.25
+Epoch:132   Accuracy:85.87   lr:0.016199
+Epoch:132   ema_Accuracy:90.08
+Epoch:133   Accuracy:87.66   lr:0.016139
+Epoch:133   ema_Accuracy:89.12
+Epoch:134   Accuracy:87.44   lr:0.016079
+Epoch:134   ema_Accuracy:89.99
+Epoch:135   Accuracy:83.40   lr:0.016018
+Epoch:135   ema_Accuracy:90.20
+Epoch:136   Accuracy:87.09   lr:0.015956
+Epoch:136   ema_Accuracy:90.36
+Epoch:137   Accuracy:87.45   lr:0.015895
+Epoch:137   ema_Accuracy:89.42
+Epoch:138   Accuracy:87.32   lr:0.015833
+Epoch:138   ema_Accuracy:90.88
+Epoch:139   Accuracy:86.83   lr:0.015770
+Epoch:139   ema_Accuracy:89.92
+Epoch:140   Accuracy:86.97   lr:0.015707
+Epoch:140   ema_Accuracy:90.23
+Epoch:141   Accuracy:87.06   lr:0.015644
+Epoch:141   ema_Accuracy:89.71
+Epoch:142   Accuracy:87.88   lr:0.015580
+Epoch:142   ema_Accuracy:90.02
+Epoch:143   Accuracy:84.32   lr:0.015516
+Epoch:143   ema_Accuracy:90.63
+Epoch:144   Accuracy:86.82   lr:0.015451
+Epoch:144   ema_Accuracy:89.34
+Epoch:145   Accuracy:86.11   lr:0.015387
+Epoch:145   ema_Accuracy:90.28
+Epoch:146   Accuracy:85.90   lr:0.015321
+Epoch:146   ema_Accuracy:90.27
+Epoch:147   Accuracy:88.14   lr:0.015256
+Epoch:147   ema_Accuracy:90.62
+Epoch:148   Accuracy:87.22   lr:0.015189
+Epoch:148   ema_Accuracy:89.52
+Epoch:149   Accuracy:87.73   lr:0.015123
+Epoch:149   ema_Accuracy:90.36
+Epoch:150   Accuracy:86.78   lr:0.015056
+Epoch:150   ema_Accuracy:90.27
+Epoch:151   Accuracy:86.85   lr:0.014989
+Epoch:151   ema_Accuracy:89.72
+Epoch:152   Accuracy:86.94   lr:0.014921
+Epoch:152   ema_Accuracy:90.63
+Epoch:153   Accuracy:87.49   lr:0.014853
+Epoch:153   ema_Accuracy:90.59
+Epoch:154   Accuracy:87.39   lr:0.014784
+Epoch:154   ema_Accuracy:90.41
+Epoch:155   Accuracy:87.42   lr:0.014716
+Epoch:155   ema_Accuracy:87.94
+Epoch:156   Accuracy:88.22   lr:0.014646
+Epoch:156   ema_Accuracy:90.35
+Epoch:157   Accuracy:87.42   lr:0.014577
+Epoch:157   ema_Accuracy:90.47
+Epoch:158   Accuracy:87.35   lr:0.014506
+Epoch:158   ema_Accuracy:91.02
+Epoch:159   Accuracy:86.59   lr:0.014436
+Epoch:159   ema_Accuracy:90.14
+Epoch:160   Accuracy:88.00   lr:0.014365
+Epoch:160   ema_Accuracy:90.35
+Epoch:161   Accuracy:88.00   lr:0.014294
+Epoch:161   ema_Accuracy:89.92
+Epoch:162   Accuracy:86.75   lr:0.014223
+Epoch:162   ema_Accuracy:90.32
+Epoch:163   Accuracy:87.85   lr:0.014151
+Epoch:163   ema_Accuracy:90.72
+Epoch:164   Accuracy:87.79   lr:0.014078
+Epoch:164   ema_Accuracy:89.80
+Epoch:165   Accuracy:86.24   lr:0.014006
+Epoch:165   ema_Accuracy:88.70
+Epoch:166   Accuracy:87.03   lr:0.013933
+Epoch:166   ema_Accuracy:90.22
+Epoch:167   Accuracy:87.02   lr:0.013859
+Epoch:167   ema_Accuracy:91.08
+Epoch:168   Accuracy:88.92   lr:0.013786
+Epoch:168   ema_Accuracy:89.08
+Epoch:169   Accuracy:87.88   lr:0.013712
+Epoch:169   ema_Accuracy:90.73
+Epoch:170   Accuracy:88.13   lr:0.013637
+Epoch:170   ema_Accuracy:90.76
+Epoch:171   Accuracy:87.52   lr:0.013562
+Epoch:171   ema_Accuracy:90.04
+Epoch:172   Accuracy:87.22   lr:0.013487
+Epoch:172   ema_Accuracy:88.81
+Epoch:173   Accuracy:87.36   lr:0.013412
+Epoch:173   ema_Accuracy:90.36
+Epoch:174   Accuracy:87.14   lr:0.013336
+Epoch:174   ema_Accuracy:91.39
+Epoch:175   Accuracy:87.21   lr:0.013259
+Epoch:175   ema_Accuracy:90.40
+Epoch:176   Accuracy:88.05   lr:0.013183
+Epoch:176   ema_Accuracy:90.63
+Epoch:177   Accuracy:88.11   lr:0.013106
+Epoch:177   ema_Accuracy:90.50
+Epoch:178   Accuracy:87.57   lr:0.013029
+Epoch:178   ema_Accuracy:90.91
+Epoch:179   Accuracy:87.33   lr:0.012951
+Epoch:179   ema_Accuracy:90.84
+Epoch:180   Accuracy:88.69   lr:0.012873
+Epoch:180   ema_Accuracy:90.07
+Epoch:181   Accuracy:89.08   lr:0.012795
+Epoch:181   ema_Accuracy:91.32
+Epoch:182   Accuracy:87.73   lr:0.012716
+Epoch:182   ema_Accuracy:90.76
+Epoch:183   Accuracy:88.61   lr:0.012637
+Epoch:183   ema_Accuracy:90.71
+Epoch:184   Accuracy:88.26   lr:0.012558
+Epoch:184   ema_Accuracy:91.31
+Epoch:185   Accuracy:86.12   lr:0.012479
+Epoch:185   ema_Accuracy:90.68
+Epoch:186   Accuracy:88.91   lr:0.012399
+Epoch:186   ema_Accuracy:90.93
+Epoch:187   Accuracy:87.57   lr:0.012319
+Epoch:187   ema_Accuracy:90.37
+Epoch:188   Accuracy:85.00   lr:0.012238
+Epoch:188   ema_Accuracy:90.97
+Epoch:189   Accuracy:89.86   lr:0.012157
+Epoch:189   ema_Accuracy:91.35
+Epoch:190   Accuracy:89.16   lr:0.012076
+Epoch:190   ema_Accuracy:91.86
+Epoch:191   Accuracy:88.07   lr:0.011994
+Epoch:191   ema_Accuracy:90.90
+Epoch:192   Accuracy:88.78   lr:0.011913
+Epoch:192   ema_Accuracy:91.11
+Epoch:193   Accuracy:88.21   lr:0.011831
+Epoch:193   ema_Accuracy:91.34
+Epoch:194   Accuracy:89.00   lr:0.011748
+Epoch:194   ema_Accuracy:89.42
+Epoch:195   Accuracy:89.11   lr:0.011665
+Epoch:195   ema_Accuracy:91.34
+Epoch:196   Accuracy:88.45   lr:0.011582
+Epoch:196   ema_Accuracy:91.17
+Epoch:197   Accuracy:88.28   lr:0.011498
+Epoch:197   ema_Accuracy:91.12
+Epoch:198   Accuracy:89.10   lr:0.011415
+Epoch:198   ema_Accuracy:90.85
+Epoch:199   Accuracy:89.25   lr:0.011331
+Epoch:199   ema_Accuracy:91.70
+Epoch:200   Accuracy:89.88   lr:0.011246
+Epoch:200   ema_Accuracy:92.05
+Epoch:201   Accuracy:88.98   lr:0.011162
+Epoch:201   ema_Accuracy:91.88
+Epoch:202   Accuracy:89.21   lr:0.011077
+Epoch:202   ema_Accuracy:90.01
+Epoch:203   Accuracy:88.79   lr:0.010992
+Epoch:203   ema_Accuracy:92.06
+Epoch:204   Accuracy:88.87   lr:0.010906
+Epoch:204   ema_Accuracy:91.65
+Epoch:205   Accuracy:89.04   lr:0.010821
+Epoch:205   ema_Accuracy:92.04
+Epoch:206   Accuracy:89.23   lr:0.010735
+Epoch:206   ema_Accuracy:91.52
+Epoch:207   Accuracy:88.49   lr:0.010649
+Epoch:207   ema_Accuracy:92.15
+Epoch:208   Accuracy:89.37   lr:0.010562
+Epoch:208   ema_Accuracy:91.14
+Epoch:209   Accuracy:89.61   lr:0.010475
+Epoch:209   ema_Accuracy:91.30
+Epoch:210   Accuracy:89.43   lr:0.010388
+Epoch:210   ema_Accuracy:91.54
+Epoch:211   Accuracy:88.87   lr:0.010301
+Epoch:211   ema_Accuracy:91.15
+Epoch:212   Accuracy:89.35   lr:0.010213
+Epoch:212   ema_Accuracy:92.38
+Epoch:213   Accuracy:89.17   lr:0.010125
+Epoch:213   ema_Accuracy:92.19
+Epoch:214   Accuracy:90.20   lr:0.010037
+Epoch:214   ema_Accuracy:91.34
+Epoch:215   Accuracy:90.01   lr:0.009948
+Epoch:215   ema_Accuracy:91.78
+Epoch:216   Accuracy:88.79   lr:0.009859
+Epoch:216   ema_Accuracy:91.84
+Epoch:217   Accuracy:89.96   lr:0.009770
+Epoch:217   ema_Accuracy:92.18
+Epoch:218   Accuracy:89.82   lr:0.009681
+Epoch:218   ema_Accuracy:91.43
+Epoch:219   Accuracy:90.00   lr:0.009591
+Epoch:219   ema_Accuracy:91.95
+Epoch:220   Accuracy:89.78   lr:0.009501
+Epoch:220   ema_Accuracy:92.76
+Epoch:221   Accuracy:90.38   lr:0.009411
+Epoch:221   ema_Accuracy:92.32
+Epoch:222   Accuracy:90.22   lr:0.009321
+Epoch:222   ema_Accuracy:92.02
+Epoch:223   Accuracy:88.90   lr:0.009231
+Epoch:223   ema_Accuracy:92.11
+Epoch:224   Accuracy:89.71   lr:0.009140
+Epoch:224   ema_Accuracy:92.38
+Epoch:225   Accuracy:90.63   lr:0.009049
+Epoch:225   ema_Accuracy:92.12
+Epoch:226   Accuracy:89.93   lr:0.008958
+Epoch:226   ema_Accuracy:92.16
+Epoch:227   Accuracy:90.05   lr:0.008866
+Epoch:227   ema_Accuracy:91.46
+Epoch:228   Accuracy:90.11   lr:0.008775
+Epoch:228   ema_Accuracy:91.23
+Epoch:229   Accuracy:89.32   lr:0.008683
+Epoch:229   ema_Accuracy:92.48
+Epoch:230   Accuracy:90.69   lr:0.008591
+Epoch:230   ema_Accuracy:92.02
+Epoch:231   Accuracy:89.93   lr:0.008498
+Epoch:231   ema_Accuracy:92.06
+Epoch:232   Accuracy:89.09   lr:0.008406
+Epoch:232   ema_Accuracy:92.59
+Epoch:233   Accuracy:90.50   lr:0.008313
+Epoch:233   ema_Accuracy:91.13
+Epoch:234   Accuracy:90.64   lr:0.008220
+Epoch:234   ema_Accuracy:92.32
+Epoch:235   Accuracy:89.74   lr:0.008126
+Epoch:235   ema_Accuracy:92.02
+Epoch:236   Accuracy:90.25   lr:0.008033
+Epoch:236   ema_Accuracy:92.07
+Epoch:237   Accuracy:89.89   lr:0.007939
+Epoch:237   ema_Accuracy:92.95
+Epoch:238   Accuracy:90.00   lr:0.007845
+Epoch:238   ema_Accuracy:92.90
+Epoch:239   Accuracy:90.16   lr:0.007751
+Epoch:239   ema_Accuracy:92.48
+Epoch:240   Accuracy:91.09   lr:0.007657
+Epoch:240   ema_Accuracy:92.12
+Epoch:241   Accuracy:90.68   lr:0.007562
+Epoch:241   ema_Accuracy:92.63
+Epoch:242   Accuracy:89.77   lr:0.007467
+Epoch:242   ema_Accuracy:92.21
+Epoch:243   Accuracy:90.67   lr:0.007373
+Epoch:243   ema_Accuracy:92.86
+Epoch:244   Accuracy:90.87   lr:0.007277
+Epoch:244   ema_Accuracy:92.89
+Epoch:245   Accuracy:90.52   lr:0.007182
+Epoch:245   ema_Accuracy:92.67
+Epoch:246   Accuracy:90.25   lr:0.007087
+Epoch:246   ema_Accuracy:92.24
+Epoch:247   Accuracy:90.74   lr:0.006991
+Epoch:247   ema_Accuracy:92.30
+Epoch:248   Accuracy:91.00   lr:0.006895
+Epoch:248   ema_Accuracy:92.39
+Epoch:249   Accuracy:91.23   lr:0.006799
+Epoch:249   ema_Accuracy:93.37
+Epoch:250   Accuracy:91.40   lr:0.006703
+Epoch:250   ema_Accuracy:93.21
+Epoch:251   Accuracy:91.32   lr:0.006606
+Epoch:251   ema_Accuracy:92.85
+Epoch:252   Accuracy:91.11   lr:0.006510
+Epoch:252   ema_Accuracy:92.88
+Epoch:253   Accuracy:91.11   lr:0.006413
+Epoch:253   ema_Accuracy:93.48
+Epoch:254   Accuracy:90.95   lr:0.006316
+Epoch:254   ema_Accuracy:93.41
+Epoch:255   Accuracy:91.78   lr:0.006219
+Epoch:255   ema_Accuracy:92.89
+Epoch:256   Accuracy:92.20   lr:0.006122
+Epoch:256   ema_Accuracy:93.11
+Epoch:257   Accuracy:91.12   lr:0.006024
+Epoch:257   ema_Accuracy:93.40
+Epoch:258   Accuracy:91.82   lr:0.005927
+Epoch:258   ema_Accuracy:93.42
+Epoch:259   Accuracy:91.32   lr:0.005829
+Epoch:259   ema_Accuracy:93.26
+Epoch:260   Accuracy:90.34   lr:0.005731
+Epoch:260   ema_Accuracy:93.49
+Epoch:261   Accuracy:91.52   lr:0.005633
+Epoch:261   ema_Accuracy:93.25
+Epoch:262   Accuracy:91.82   lr:0.005535
+Epoch:262   ema_Accuracy:92.73
+Epoch:263   Accuracy:91.42   lr:0.005437
+Epoch:263   ema_Accuracy:93.45
+Epoch:264   Accuracy:90.98   lr:0.005338
+Epoch:264   ema_Accuracy:93.22
+Epoch:265   Accuracy:91.39   lr:0.005240
+Epoch:265   ema_Accuracy:92.86
+Epoch:266   Accuracy:90.77   lr:0.005141
+Epoch:266   ema_Accuracy:93.40
+Epoch:267   Accuracy:91.86   lr:0.005042
+Epoch:267   ema_Accuracy:93.38
+Epoch:268   Accuracy:92.11   lr:0.004943
+Epoch:268   ema_Accuracy:93.46
+Epoch:269   Accuracy:92.51   lr:0.004844
+Epoch:269   ema_Accuracy:92.59
+Epoch:270   Accuracy:91.72   lr:0.004745
+Epoch:270   ema_Accuracy:93.77
+Epoch:271   Accuracy:91.95   lr:0.004646
+Epoch:271   ema_Accuracy:93.75
+Epoch:272   Accuracy:91.47   lr:0.004546
+Epoch:272   ema_Accuracy:93.50
+Epoch:273   Accuracy:92.28   lr:0.004446
+Epoch:273   ema_Accuracy:93.59
+Epoch:274   Accuracy:92.43   lr:0.004347
+Epoch:274   ema_Accuracy:93.32
+Epoch:275   Accuracy:91.56   lr:0.004247
+Epoch:275   ema_Accuracy:93.79
+Epoch:276   Accuracy:92.09   lr:0.004147
+Epoch:276   ema_Accuracy:93.68
+Epoch:277   Accuracy:91.46   lr:0.004047
+Epoch:277   ema_Accuracy:93.62
+Epoch:278   Accuracy:92.83   lr:0.003947
+Epoch:278   ema_Accuracy:93.56
+Epoch:279   Accuracy:92.26   lr:0.003846
+Epoch:279   ema_Accuracy:92.67
+Epoch:280   Accuracy:92.34   lr:0.003746
+Epoch:280   ema_Accuracy:93.23
+Epoch:281   Accuracy:92.60   lr:0.003646
+Epoch:281   ema_Accuracy:93.45
+Epoch:282   Accuracy:92.76   lr:0.003545
+Epoch:282   ema_Accuracy:93.67
+Epoch:283   Accuracy:92.82   lr:0.003444
+Epoch:283   ema_Accuracy:94.09
+Epoch:284   Accuracy:92.50   lr:0.003344
+Epoch:284   ema_Accuracy:93.56
+Epoch:285   Accuracy:92.99   lr:0.003243
+Epoch:285   ema_Accuracy:93.86
+Epoch:286   Accuracy:93.16   lr:0.003142
+Epoch:286   ema_Accuracy:93.56
+Epoch:287   Accuracy:92.91   lr:0.003041
+Epoch:287   ema_Accuracy:93.77
+Epoch:288   Accuracy:92.77   lr:0.002940
+Epoch:288   ema_Accuracy:93.91
+Epoch:289   Accuracy:93.45   lr:0.002839
+Epoch:289   ema_Accuracy:93.92
+Epoch:290   Accuracy:92.94   lr:0.002737
+Epoch:290   ema_Accuracy:94.01
+Epoch:291   Accuracy:93.31   lr:0.002636
+Epoch:291   ema_Accuracy:93.64
+Epoch:292   Accuracy:93.09   lr:0.002535
+Epoch:292   ema_Accuracy:93.52
+Epoch:293   Accuracy:93.36   lr:0.002433
+Epoch:293   ema_Accuracy:93.65
+Epoch:294   Accuracy:93.67   lr:0.002332
+Epoch:294   ema_Accuracy:94.27
+Epoch:295   Accuracy:93.84   lr:0.002230
+Epoch:295   ema_Accuracy:93.98
+Epoch:296   Accuracy:93.40   lr:0.002129
+Epoch:296   ema_Accuracy:94.17
+Epoch:297   Accuracy:93.99   lr:0.002027
+Epoch:297   ema_Accuracy:93.97
+Epoch:298   Accuracy:93.90   lr:0.001925
+Epoch:298   ema_Accuracy:93.86
+Epoch:299   Accuracy:93.38   lr:0.001824
+Epoch:299   ema_Accuracy:93.98
+Epoch:300   Accuracy:94.05   lr:0.001722
+Epoch:300   ema_Accuracy:94.06
+Epoch:301   Accuracy:93.79   lr:0.001620
+Epoch:301   ema_Accuracy:94.54
+Epoch:302   Accuracy:94.06   lr:0.001518
+Epoch:302   ema_Accuracy:94.36
+Epoch:303   Accuracy:94.31   lr:0.001416
+Epoch:303   ema_Accuracy:94.50
+Epoch:304   Accuracy:94.24   lr:0.001314
+Epoch:304   ema_Accuracy:94.49
+Epoch:305   Accuracy:94.24   lr:0.001212
+Epoch:305   ema_Accuracy:94.28
+Epoch:306   Accuracy:93.84   lr:0.001110
+Epoch:306   ema_Accuracy:94.46
+Epoch:307   Accuracy:94.46   lr:0.001008
+Epoch:307   ema_Accuracy:94.87
+Epoch:308   Accuracy:94.43   lr:0.000906
+Epoch:308   ema_Accuracy:94.83
+Epoch:309   Accuracy:94.33   lr:0.000804
+Epoch:309   ema_Accuracy:94.30
+Epoch:310   Accuracy:94.46   lr:0.000701
+Epoch:310   ema_Accuracy:94.76
+Epoch:311   Accuracy:94.44   lr:0.000599
+Epoch:311   ema_Accuracy:94.74
+Epoch:312   Accuracy:94.78   lr:0.000497
+Epoch:312   ema_Accuracy:94.78
+Epoch:313   Accuracy:94.87   lr:0.000395
+Epoch:313   ema_Accuracy:94.97
+Epoch:314   Accuracy:94.83   lr:0.000293
+Epoch:314   ema_Accuracy:94.91
+Epoch:315   Accuracy:94.92   lr:0.000190
+Epoch:315   ema_Accuracy:94.93
+Epoch:316   Accuracy:94.98   lr:0.000088
+Epoch:316   ema_Accuracy:95.00
+Epoch:317   Accuracy:95.04   lr:0.000000
+Epoch:317   ema_Accuracy:94.94
+Epoch:318   Accuracy:95.00   lr:0.000000
+Epoch:318   ema_Accuracy:94.97
+Epoch:319   Accuracy:95.01   lr:0.000000
+Epoch:319   ema_Accuracy:95.04
+Epoch:320   Accuracy:95.06   lr:0.000000
+Epoch:320   ema_Accuracy:94.93
+Epoch:321   Accuracy:94.92   lr:0.000000
+Epoch:321   ema_Accuracy:94.99
+Epoch:322   Accuracy:94.92   lr:0.000000
+Epoch:322   ema_Accuracy:94.97
+Epoch:323   Accuracy:94.96   lr:0.000000
+Epoch:323   ema_Accuracy:94.95
+Epoch:324   Accuracy:94.89   lr:0.000000
+Epoch:324   ema_Accuracy:95.01
+Epoch:325   Accuracy:94.91   lr:0.000000
+Epoch:325   ema_Accuracy:94.99
+Epoch:326   Accuracy:95.01   lr:0.000000
+Epoch:326   ema_Accuracy:95.06
+Epoch:327   Accuracy:94.88   lr:0.000000
+Epoch:327   ema_Accuracy:94.96
+Epoch:328   Accuracy:95.08   lr:0.000000
+Epoch:328   ema_Accuracy:95.08
+Epoch:329   Accuracy:95.03   lr:0.000000
+Epoch:329   ema_Accuracy:94.93
+Epoch:330   Accuracy:95.02   lr:0.000000
+Epoch:330   ema_Accuracy:95.14
+Epoch:331   Accuracy:94.99   lr:0.000000
+Epoch:331   ema_Accuracy:95.05
+Epoch:332   Accuracy:95.04   lr:0.000000
+Epoch:332   ema_Accuracy:95.08
+Epoch:333   Accuracy:94.91   lr:0.000000
+Epoch:333   ema_Accuracy:94.98
+Epoch:334   Accuracy:94.97   lr:0.000000
+Epoch:334   ema_Accuracy:95.01
+Epoch:335   Accuracy:94.79   lr:0.000000
+Epoch:335   ema_Accuracy:94.84
+Epoch:336   Accuracy:94.92   lr:0.000000
+Epoch:336   ema_Accuracy:94.93
+Epoch:337   Accuracy:95.00   lr:0.000000
+Epoch:337   ema_Accuracy:94.89
+Epoch:338   Accuracy:94.99   lr:0.000000
+Epoch:338   ema_Accuracy:95.00
+Epoch:339   Accuracy:94.92   lr:0.000000
+Epoch:339   ema_Accuracy:94.86
+Epoch:340   Accuracy:95.01   lr:0.000000
+Epoch:340   ema_Accuracy:95.03
+Epoch:341   Accuracy:95.00   lr:0.000000
+Epoch:341   ema_Accuracy:94.94
+Epoch:342   Accuracy:95.11   lr:0.000000
+Epoch:342   ema_Accuracy:95.14
+Epoch:343   Accuracy:94.87   lr:0.000000
+Epoch:343   ema_Accuracy:94.94
+Epoch:344   Accuracy:94.92   lr:0.000000
+Epoch:344   ema_Accuracy:95.04
+Epoch:345   Accuracy:94.77   lr:0.000000
+Epoch:345   ema_Accuracy:94.83
+Epoch:346   Accuracy:94.82   lr:0.000000
+Epoch:346   ema_Accuracy:95.03
+Epoch:347   Accuracy:94.87   lr:0.000000
+Epoch:347   ema_Accuracy:94.88
+Epoch:348   Accuracy:94.83   lr:0.000000
+Epoch:348   ema_Accuracy:94.97
+Epoch:349   Accuracy:94.78   lr:0.000000
+Epoch:349   ema_Accuracy:94.89
+Epoch:350   Accuracy:94.82   lr:0.000000
+Epoch:350   ema_Accuracy:95.03
+Epoch:351   Accuracy:94.81   lr:0.000000
+Epoch:351   ema_Accuracy:94.94
+Epoch:352   Accuracy:94.78   lr:0.000000
+Epoch:352   ema_Accuracy:94.87
+Epoch:353   Accuracy:94.88   lr:0.000000
+Epoch:353   ema_Accuracy:94.91
+Epoch:354   Accuracy:94.79   lr:0.000000
+Epoch:354   ema_Accuracy:94.87
+Epoch:355   Accuracy:94.76   lr:0.000000
+Epoch:355   ema_Accuracy:94.73
+Epoch:356   Accuracy:94.77   lr:0.000000
+Epoch:356   ema_Accuracy:94.86
+Epoch:357   Accuracy:94.75   lr:0.000000
+Epoch:357   ema_Accuracy:94.72
+Epoch:358   Accuracy:94.66   lr:0.000000
+Epoch:358   ema_Accuracy:94.75
+Epoch:359   Accuracy:94.70   lr:0.000000
+Epoch:359   ema_Accuracy:94.75
+Epoch:360   Accuracy:94.80   lr:0.000000
+Epoch:360   ema_Accuracy:94.80
+Epoch:361   Accuracy:94.72   lr:0.000000
+Epoch:361   ema_Accuracy:94.71
+Epoch:362   Accuracy:94.75   lr:0.000000
+Epoch:362   ema_Accuracy:94.68
+Epoch:363   Accuracy:94.76   lr:0.000000
+Epoch:363   ema_Accuracy:94.86
+Epoch:364   Accuracy:94.97   lr:0.000000
+Epoch:364   ema_Accuracy:94.80
+Epoch:365   Accuracy:94.87   lr:0.000000
+Epoch:365   ema_Accuracy:94.82
+Epoch:366   Accuracy:94.91   lr:0.000000
+Epoch:366   ema_Accuracy:94.85
+Epoch:367   Accuracy:94.87   lr:0.000000
+Epoch:367   ema_Accuracy:94.86
+Epoch:368   Accuracy:94.91   lr:0.000000
+Epoch:368   ema_Accuracy:94.85
+Epoch:369   Accuracy:94.79   lr:0.000000
+Epoch:369   ema_Accuracy:94.91
+Epoch:370   Accuracy:94.86   lr:0.000000
+Epoch:370   ema_Accuracy:94.82
+Epoch:371   Accuracy:94.71   lr:0.000000
+Epoch:371   ema_Accuracy:94.76
+Epoch:372   Accuracy:94.83   lr:0.000000
+Epoch:372   ema_Accuracy:94.85
+Epoch:373   Accuracy:94.80   lr:0.000000
+Epoch:373   ema_Accuracy:94.76
+Epoch:374   Accuracy:94.82   lr:0.000000
+Epoch:374   ema_Accuracy:94.78
+Epoch:375   Accuracy:94.87   lr:0.000000
+Epoch:375   ema_Accuracy:94.82
+Epoch:376   Accuracy:94.80   lr:0.000000
+Epoch:376   ema_Accuracy:94.78
+Epoch:377   Accuracy:94.89   lr:0.000000
+Epoch:377   ema_Accuracy:94.76
+Epoch:378   Accuracy:94.87   lr:0.000000
+Epoch:378   ema_Accuracy:94.87
+Epoch:379   Accuracy:94.79   lr:0.000000
+Epoch:379   ema_Accuracy:94.76
+Epoch:380   Accuracy:94.79   lr:0.000000
+Epoch:380   ema_Accuracy:94.84
+Epoch:381   Accuracy:94.79   lr:0.000000
+Epoch:381   ema_Accuracy:94.80
+Epoch:382   Accuracy:94.81   lr:0.000000
+Epoch:382   ema_Accuracy:94.76
+Epoch:383   Accuracy:94.85   lr:0.000000
+Epoch:383   ema_Accuracy:94.76
+Epoch:384   Accuracy:94.90   lr:0.000000
+Epoch:384   ema_Accuracy:94.82
+Epoch:385   Accuracy:94.83   lr:0.000000
+Epoch:385   ema_Accuracy:94.80
+Epoch:386   Accuracy:94.93   lr:0.000000
+Epoch:386   ema_Accuracy:94.91
+Epoch:387   Accuracy:94.94   lr:0.000000
+Epoch:387   ema_Accuracy:95.00
+Epoch:388   Accuracy:95.08   lr:0.000000
+Epoch:388   ema_Accuracy:94.92
+Epoch:389   Accuracy:94.97   lr:0.000000
+Epoch:389   ema_Accuracy:94.89
+Epoch:390   Accuracy:95.00   lr:0.000000
+Epoch:390   ema_Accuracy:94.94
+Epoch:391   Accuracy:94.88   lr:0.000000
+Epoch:391   ema_Accuracy:94.98
+Epoch:392   Accuracy:94.98   lr:0.000000
+Epoch:392   ema_Accuracy:94.91
+Epoch:393   Accuracy:94.94   lr:0.000000
+Epoch:393   ema_Accuracy:94.88
+Epoch:394   Accuracy:94.88   lr:0.000000
+Epoch:394   ema_Accuracy:94.95
+Epoch:395   Accuracy:94.89   lr:0.000000
+Epoch:395   ema_Accuracy:94.88
+Epoch:396   Accuracy:94.93   lr:0.000000
+Epoch:396   ema_Accuracy:94.92
+Epoch:397   Accuracy:94.87   lr:0.000000
+Epoch:397   ema_Accuracy:94.91
+Epoch:398   Accuracy:95.00   lr:0.000000
+Epoch:398   ema_Accuracy:94.91
+Epoch:399   Accuracy:95.05   lr:0.000000
+Epoch:399   ema_Accuracy:94.92
+Epoch:400   Accuracy:94.97   lr:0.000000
+Epoch:400   ema_Accuracy:95.03
+Epoch:401   Accuracy:94.95   lr:0.000000
+Epoch:401   ema_Accuracy:94.94
+Epoch:402   Accuracy:95.04   lr:0.000000
+Epoch:402   ema_Accuracy:95.00
+Epoch:403   Accuracy:94.98   lr:0.000000
+Epoch:403   ema_Accuracy:95.01
+Epoch:404   Accuracy:95.04   lr:0.000000
+Epoch:404   ema_Accuracy:94.95
+Epoch:405   Accuracy:94.91   lr:0.000000
+Epoch:405   ema_Accuracy:94.87
+Epoch:406   Accuracy:95.08   lr:0.000000
+Epoch:406   ema_Accuracy:95.11
+Epoch:407   Accuracy:95.11   lr:0.000000
+Epoch:407   ema_Accuracy:95.09
+Epoch:408   Accuracy:95.08   lr:0.000000
+Epoch:408   ema_Accuracy:95.03
+Epoch:409   Accuracy:94.95   lr:0.000000
+Epoch:409   ema_Accuracy:95.01
+Epoch:410   Accuracy:94.91   lr:0.000000
+Epoch:410   ema_Accuracy:94.96
+Epoch:411   Accuracy:94.97   lr:0.000000
+Epoch:411   ema_Accuracy:94.90
+Epoch:412   Accuracy:95.00   lr:0.000000
+Epoch:412   ema_Accuracy:94.95
+Epoch:413   Accuracy:94.92   lr:0.000000
+Epoch:413   ema_Accuracy:94.97
+Epoch:414   Accuracy:94.98   lr:0.000000
+Epoch:414   ema_Accuracy:94.92
+Epoch:415   Accuracy:95.05   lr:0.000000
+Epoch:415   ema_Accuracy:95.00
+Epoch:416   Accuracy:94.92   lr:0.000000
+Epoch:416   ema_Accuracy:94.96
+Epoch:417   Accuracy:94.95   lr:0.000000
+Epoch:417   ema_Accuracy:95.05
+Epoch:418   Accuracy:94.98   lr:0.000000
+Epoch:418   ema_Accuracy:94.96
+Epoch:419   Accuracy:94.87   lr:0.000000
+Epoch:419   ema_Accuracy:94.98
+Epoch:420   Accuracy:95.06   lr:0.000000
+Epoch:420   ema_Accuracy:95.02
+Epoch:421   Accuracy:94.98   lr:0.000000
+Epoch:421   ema_Accuracy:94.97
+Epoch:422   Accuracy:94.97   lr:0.000000
+Epoch:422   ema_Accuracy:94.93
+Epoch:423   Accuracy:94.99   lr:0.000000
+Epoch:423   ema_Accuracy:94.96
+Epoch:424   Accuracy:94.98   lr:0.000000
+Epoch:424   ema_Accuracy:94.92
+Epoch:425   Accuracy:94.85   lr:0.000000
+Epoch:425   ema_Accuracy:94.88
+Epoch:426   Accuracy:94.94   lr:0.000000
+Epoch:426   ema_Accuracy:95.01
+Epoch:427   Accuracy:94.92   lr:0.000000
+Epoch:427   ema_Accuracy:95.03
+Epoch:428   Accuracy:94.96   lr:0.000000
+Epoch:428   ema_Accuracy:95.04
+Epoch:429   Accuracy:94.93   lr:0.000000
+Epoch:429   ema_Accuracy:94.93
+Epoch:430   Accuracy:94.93   lr:0.000000
+Epoch:430   ema_Accuracy:94.98
+Epoch:431   Accuracy:94.94   lr:0.000000
+Epoch:431   ema_Accuracy:95.00
+Epoch:432   Accuracy:94.90   lr:0.000000
+Epoch:432   ema_Accuracy:95.00
+Epoch:433   Accuracy:94.93   lr:0.000000
+Epoch:433   ema_Accuracy:94.98
+Epoch:434   Accuracy:95.02   lr:0.000000
+Epoch:434   ema_Accuracy:94.96
+Epoch:435   Accuracy:94.96   lr:0.000000
+Epoch:435   ema_Accuracy:94.96
+Epoch:436   Accuracy:95.03   lr:0.000000
+Epoch:436   ema_Accuracy:95.08
+Epoch:437   Accuracy:95.03   lr:0.000000
+Epoch:437   ema_Accuracy:95.01
+Epoch:438   Accuracy:94.90   lr:0.000000
+Epoch:438   ema_Accuracy:94.95
+Epoch:439   Accuracy:95.00   lr:0.000000
+Epoch:439   ema_Accuracy:94.93
+Epoch:440   Accuracy:95.01   lr:0.000000
+Epoch:440   ema_Accuracy:95.03
+Epoch:441   Accuracy:95.01   lr:0.000000
+Epoch:441   ema_Accuracy:95.03
+Epoch:442   Accuracy:94.91   lr:0.000000
+Epoch:442   ema_Accuracy:95.06
+Epoch:443   Accuracy:94.99   lr:0.000000
+Epoch:443   ema_Accuracy:95.10
+Epoch:444   Accuracy:94.90   lr:0.000000
+Epoch:444   ema_Accuracy:95.00
+Epoch:445   Accuracy:94.95   lr:0.000000
+Epoch:445   ema_Accuracy:94.99
+Epoch:446   Accuracy:94.90   lr:0.000000
+Epoch:446   ema_Accuracy:95.06
+Epoch:447   Accuracy:94.93   lr:0.000000
+Epoch:447   ema_Accuracy:94.94
+Epoch:448   Accuracy:94.99   lr:0.000000
+Epoch:448   ema_Accuracy:95.01
+Epoch:449   Accuracy:94.95   lr:0.000000
+Epoch:449   ema_Accuracy:94.98
+Epoch:450   Accuracy:94.91   lr:0.000000
+Epoch:450   ema_Accuracy:94.90
+Epoch:451   Accuracy:94.95   lr:0.000000
+Epoch:451   ema_Accuracy:94.83
+Epoch:452   Accuracy:94.83   lr:0.000000
+Epoch:452   ema_Accuracy:94.92
+Epoch:453   Accuracy:94.84   lr:0.000000
+Epoch:453   ema_Accuracy:94.93
+Epoch:454   Accuracy:94.89   lr:0.000000
+Epoch:454   ema_Accuracy:94.94
+Epoch:455   Accuracy:94.75   lr:0.000000
+Epoch:455   ema_Accuracy:94.81
+Epoch:456   Accuracy:94.79   lr:0.000000
+Epoch:456   ema_Accuracy:94.81
+Epoch:457   Accuracy:94.84   lr:0.000000
+Epoch:457   ema_Accuracy:94.87
+Epoch:458   Accuracy:94.82   lr:0.000000
+Epoch:458   ema_Accuracy:94.76
+Epoch:459   Accuracy:94.79   lr:0.000000
+Epoch:459   ema_Accuracy:94.81
+Epoch:460   Accuracy:94.81   lr:0.000000
+Epoch:460   ema_Accuracy:94.83
+Epoch:461   Accuracy:94.86   lr:0.000000
+Epoch:461   ema_Accuracy:94.81
+Epoch:462   Accuracy:94.81   lr:0.000000
+Epoch:462   ema_Accuracy:94.88
+Epoch:463   Accuracy:94.87   lr:0.000000
+Epoch:463   ema_Accuracy:94.90
+Epoch:464   Accuracy:94.81   lr:0.000000
+Epoch:464   ema_Accuracy:94.90
+Epoch:465   Accuracy:94.82   lr:0.000000
+Epoch:465   ema_Accuracy:94.90
+Epoch:466   Accuracy:94.87   lr:0.000000
+Epoch:466   ema_Accuracy:94.85
+Epoch:467   Accuracy:94.82   lr:0.000000
+Epoch:467   ema_Accuracy:94.78
+Epoch:468   Accuracy:94.90   lr:0.000000
+Epoch:468   ema_Accuracy:94.89
+Epoch:469   Accuracy:94.90   lr:0.000000
+Epoch:469   ema_Accuracy:94.94
+Epoch:470   Accuracy:94.85   lr:0.000000
+Epoch:470   ema_Accuracy:94.92
+Epoch:471   Accuracy:94.74   lr:0.000000
+Epoch:471   ema_Accuracy:94.77
+Epoch:472   Accuracy:94.87   lr:0.000000
+Epoch:472   ema_Accuracy:94.83
+Epoch:473   Accuracy:94.96   lr:0.000000
+Epoch:473   ema_Accuracy:94.89
+Epoch:474   Accuracy:94.91   lr:0.000000
+Epoch:474   ema_Accuracy:95.00
+Epoch:475   Accuracy:94.86   lr:0.000000
+Epoch:475   ema_Accuracy:94.81
+Epoch:476   Accuracy:94.90   lr:0.000000
+Epoch:476   ema_Accuracy:94.97
+Epoch:477   Accuracy:94.85   lr:0.000000
+Epoch:477   ema_Accuracy:94.94
+Epoch:478   Accuracy:94.91   lr:0.000000
+Epoch:478   ema_Accuracy:94.87
+Epoch:479   Accuracy:94.97   lr:0.000000
+Epoch:479   ema_Accuracy:94.89
+Epoch:480   Accuracy:95.02   lr:0.000000
+Epoch:480   ema_Accuracy:94.93
+Epoch:481   Accuracy:94.92   lr:0.000000
+Epoch:481   ema_Accuracy:94.95
+Epoch:482   Accuracy:94.86   lr:0.000000
+Epoch:482   ema_Accuracy:94.99
+Epoch:483   Accuracy:94.92   lr:0.000000
+Epoch:483   ema_Accuracy:94.98
+Epoch:484   Accuracy:94.89   lr:0.000000
+Epoch:484   ema_Accuracy:94.94
+Epoch:485   Accuracy:95.00   lr:0.000000
+Epoch:485   ema_Accuracy:94.99
+Epoch:486   Accuracy:94.99   lr:0.000000
+Epoch:486   ema_Accuracy:94.99
+Epoch:487   Accuracy:94.94   lr:0.000000
+Epoch:487   ema_Accuracy:95.04
+Epoch:488   Accuracy:94.87   lr:0.000000
+Epoch:488   ema_Accuracy:94.95
+Epoch:489   Accuracy:94.94   lr:0.000000
+Epoch:489   ema_Accuracy:94.97
+Epoch:490   Accuracy:94.93   lr:0.000000
+Epoch:490   ema_Accuracy:94.86
+Epoch:491   Accuracy:94.85   lr:0.000000
+Epoch:491   ema_Accuracy:95.02
+Epoch:492   Accuracy:94.93   lr:0.000000
+Epoch:492   ema_Accuracy:94.88
+Epoch:493   Accuracy:94.82   lr:0.000000
+Epoch:493   ema_Accuracy:94.87
+Epoch:494   Accuracy:94.87   lr:0.000000
+Epoch:494   ema_Accuracy:94.96
+Epoch:495   Accuracy:94.83   lr:0.000000
+Epoch:495   ema_Accuracy:94.90
+Epoch:496   Accuracy:94.90   lr:0.000000
+Epoch:496   ema_Accuracy:94.96
+Epoch:497   Accuracy:94.99   lr:0.000000
+Epoch:497   ema_Accuracy:94.93
+Epoch:498   Accuracy:94.89   lr:0.000000
+Epoch:498   ema_Accuracy:94.94
+Epoch:499   Accuracy:95.06   lr:0.000000
+Epoch:499   ema_Accuracy:95.02
+Epoch:500   Accuracy:95.00   lr:0.000000
+Epoch:500   ema_Accuracy:94.98
+Epoch:501   Accuracy:94.94   lr:0.000000
+Epoch:501   ema_Accuracy:95.00
+Epoch:502   Accuracy:95.01   lr:0.000000
+Epoch:502   ema_Accuracy:95.08
+Epoch:503   Accuracy:94.98   lr:0.000000
+Epoch:503   ema_Accuracy:95.01
+Epoch:504   Accuracy:94.86   lr:0.000000
+Epoch:504   ema_Accuracy:94.87
+Epoch:505   Accuracy:94.90   lr:0.000000
+Epoch:505   ema_Accuracy:94.90
+Epoch:506   Accuracy:95.05   lr:0.000000
+Epoch:506   ema_Accuracy:94.99
+Epoch:507   Accuracy:94.93   lr:0.000000
+Epoch:507   ema_Accuracy:94.99
+Epoch:508   Accuracy:94.91   lr:0.000000
+Epoch:508   ema_Accuracy:94.95
+Epoch:509   Accuracy:94.89   lr:0.000000
+Epoch:509   ema_Accuracy:94.91
+Epoch:510   Accuracy:94.98   lr:0.000000
+Epoch:510   ema_Accuracy:94.89
+Epoch:511   Accuracy:94.90   lr:0.000000
+Epoch:511   ema_Accuracy:94.94
+Epoch:512   Accuracy:95.00   lr:0.000000
+Epoch:512   ema_Accuracy:94.93
+Epoch:513   Accuracy:95.00   lr:0.000000
+Epoch:513   ema_Accuracy:95.01
+Epoch:514   Accuracy:95.01   lr:0.000000
+Epoch:514   ema_Accuracy:94.97
+Epoch:515   Accuracy:95.04   lr:0.000000
+Epoch:515   ema_Accuracy:94.96
+Epoch:516   Accuracy:94.96   lr:0.000000
+Epoch:516   ema_Accuracy:95.03
+Epoch:517   Accuracy:95.01   lr:0.000000
+Epoch:517   ema_Accuracy:95.09
+Epoch:518   Accuracy:94.96   lr:0.000000
+Epoch:518   ema_Accuracy:95.00
+Epoch:519   Accuracy:94.99   lr:0.000000
+Epoch:519   ema_Accuracy:95.07
+Epoch:520   Accuracy:94.92   lr:0.000000
+Epoch:520   ema_Accuracy:95.02
+Epoch:521   Accuracy:95.08   lr:0.000000
+Epoch:521   ema_Accuracy:95.03
+Epoch:522   Accuracy:95.00   lr:0.000000
+Epoch:522   ema_Accuracy:95.04
+Epoch:523   Accuracy:95.11   lr:0.000000
+Epoch:523   ema_Accuracy:94.98
+Epoch:524   Accuracy:95.01   lr:0.000000
+Epoch:524   ema_Accuracy:95.07
+Epoch:525   Accuracy:94.94   lr:0.000000
+Epoch:525   ema_Accuracy:94.93
+Epoch:526   Accuracy:94.89   lr:0.000000
+Epoch:526   ema_Accuracy:95.10
+Epoch:527   Accuracy:95.08   lr:0.000000
+Epoch:527   ema_Accuracy:95.09
+Epoch:528   Accuracy:95.00   lr:0.000000
+Epoch:528   ema_Accuracy:95.06
+Epoch:529   Accuracy:94.96   lr:0.000000
+Epoch:529   ema_Accuracy:95.04
+Epoch:530   Accuracy:94.95   lr:0.000000
+Epoch:530   ema_Accuracy:95.04
+Epoch:531   Accuracy:95.05   lr:0.000000
+Epoch:531   ema_Accuracy:94.91
+Epoch:532   Accuracy:94.97   lr:0.000000
+Epoch:532   ema_Accuracy:95.01
+Epoch:533   Accuracy:94.94   lr:0.000000
+Epoch:533   ema_Accuracy:95.00
+Epoch:534   Accuracy:94.86   lr:0.000000
+Epoch:534   ema_Accuracy:94.97
+Epoch:535   Accuracy:94.87   lr:0.000000
+Epoch:535   ema_Accuracy:94.92
+Epoch:536   Accuracy:94.92   lr:0.000000
+Epoch:536   ema_Accuracy:94.92
+Epoch:537   Accuracy:94.86   lr:0.000000
+Epoch:537   ema_Accuracy:94.99
+Epoch:538   Accuracy:94.85   lr:0.000000
+Epoch:538   ema_Accuracy:94.82
+Epoch:539   Accuracy:94.98   lr:0.000000
+Epoch:539   ema_Accuracy:94.95
+Epoch:540   Accuracy:94.97   lr:0.000000
+Epoch:540   ema_Accuracy:94.98
+Epoch:541   Accuracy:95.03   lr:0.000000
+Epoch:541   ema_Accuracy:95.05
+Epoch:542   Accuracy:94.96   lr:0.000000
+Epoch:542   ema_Accuracy:94.96
+Epoch:543   Accuracy:94.98   lr:0.000000
+Epoch:543   ema_Accuracy:94.93
+Epoch:544   Accuracy:94.96   lr:0.000000
+Epoch:544   ema_Accuracy:95.05
+Epoch:545   Accuracy:95.00   lr:0.000000
+Epoch:545   ema_Accuracy:95.00
+Epoch:546   Accuracy:94.99   lr:0.000000
+Epoch:546   ema_Accuracy:94.96
+Epoch:547   Accuracy:95.03   lr:0.000000
+Epoch:547   ema_Accuracy:94.91
+Epoch:548   Accuracy:94.99   lr:0.000000
+Epoch:548   ema_Accuracy:94.97
+Epoch:549   Accuracy:95.00   lr:0.000000
+Epoch:549   ema_Accuracy:95.04
+Epoch:550   Accuracy:95.05   lr:0.000000
+Epoch:550   ema_Accuracy:95.05
+Epoch:551   Accuracy:94.98   lr:0.000000
+Epoch:551   ema_Accuracy:94.97
+Epoch:552   Accuracy:95.03   lr:0.000000
+Epoch:552   ema_Accuracy:95.09
+Epoch:553   Accuracy:95.07   lr:0.000000
+Epoch:553   ema_Accuracy:95.04
+Epoch:554   Accuracy:95.10   lr:0.000000
+Epoch:554   ema_Accuracy:95.00
+Epoch:555   Accuracy:94.98   lr:0.000000
+Epoch:555   ema_Accuracy:94.99
+Epoch:556   Accuracy:94.94   lr:0.000000
+Epoch:556   ema_Accuracy:95.03
+Epoch:557   Accuracy:94.91   lr:0.000000
+Epoch:557   ema_Accuracy:95.01
+Epoch:558   Accuracy:94.86   lr:0.000000
+Epoch:558   ema_Accuracy:94.97
+Epoch:559   Accuracy:94.96   lr:0.000000
+Epoch:559   ema_Accuracy:94.97
+Epoch:560   Accuracy:94.99   lr:0.000000
+Epoch:560   ema_Accuracy:95.02
+Epoch:561   Accuracy:94.93   lr:0.000000
+Epoch:561   ema_Accuracy:94.94
+Epoch:562   Accuracy:94.90   lr:0.000000
+Epoch:562   ema_Accuracy:94.89
+Epoch:563   Accuracy:94.96   lr:0.000000
+Epoch:563   ema_Accuracy:94.96
+Epoch:564   Accuracy:95.06   lr:0.000000
+Epoch:564   ema_Accuracy:94.97
+Epoch:565   Accuracy:95.09   lr:0.000000
+Epoch:565   ema_Accuracy:95.05
+Epoch:566   Accuracy:95.00   lr:0.000000
+Epoch:566   ema_Accuracy:95.01
+Epoch:567   Accuracy:94.98   lr:0.000000
+Epoch:567   ema_Accuracy:95.11
+Epoch:568   Accuracy:94.90   lr:0.000000
+Epoch:568   ema_Accuracy:95.11
+Epoch:569   Accuracy:94.95   lr:0.000000
+Epoch:569   ema_Accuracy:95.03
+Epoch:570   Accuracy:94.93   lr:0.000000
+Epoch:570   ema_Accuracy:94.98
+Epoch:571   Accuracy:94.91   lr:0.000000
+Epoch:571   ema_Accuracy:94.93
+Epoch:572   Accuracy:94.94   lr:0.000000
+Epoch:572   ema_Accuracy:94.97
+Epoch:573   Accuracy:94.95   lr:0.000000
+Epoch:573   ema_Accuracy:94.93
+Epoch:574   Accuracy:94.83   lr:0.000000
+Epoch:574   ema_Accuracy:94.89
+Epoch:575   Accuracy:94.89   lr:0.000000
+Epoch:575   ema_Accuracy:94.93
+Epoch:576   Accuracy:94.86   lr:0.000000
+Epoch:576   ema_Accuracy:94.93
+Epoch:577   Accuracy:94.94   lr:0.000000
+Epoch:577   ema_Accuracy:94.94
+Epoch:578   Accuracy:94.86   lr:0.000000
+Epoch:578   ema_Accuracy:94.91
+Epoch:579   Accuracy:94.90   lr:0.000000
+Epoch:579   ema_Accuracy:94.89
+Epoch:580   Accuracy:94.69   lr:0.000000
+Epoch:580   ema_Accuracy:94.92
+Epoch:581   Accuracy:94.83   lr:0.000000
+Epoch:581   ema_Accuracy:94.87
+Epoch:582   Accuracy:94.75   lr:0.000000
+Epoch:582   ema_Accuracy:94.84
+Epoch:583   Accuracy:94.86   lr:0.000000
+Epoch:583   ema_Accuracy:94.86
+Epoch:584   Accuracy:94.78   lr:0.000000
+Epoch:584   ema_Accuracy:94.82
+Epoch:585   Accuracy:94.83   lr:0.000000
+Epoch:585   ema_Accuracy:94.93
+Epoch:586   Accuracy:94.79   lr:0.000000
+Epoch:586   ema_Accuracy:94.83
+Epoch:587   Accuracy:94.80   lr:0.000000
+Epoch:587   ema_Accuracy:94.88
+Epoch:588   Accuracy:94.82   lr:0.000000
+Epoch:588   ema_Accuracy:94.88
+Epoch:589   Accuracy:94.83   lr:0.000000
+Epoch:589   ema_Accuracy:94.79
+Epoch:590   Accuracy:94.88   lr:0.000000
+Epoch:590   ema_Accuracy:94.93
+Epoch:591   Accuracy:94.76   lr:0.000000
+Epoch:591   ema_Accuracy:94.84
+Epoch:592   Accuracy:94.84   lr:0.000000
+Epoch:592   ema_Accuracy:94.87
+Epoch:593   Accuracy:94.79   lr:0.000000
+Epoch:593   ema_Accuracy:94.81
+Epoch:594   Accuracy:94.83   lr:0.000000
+Epoch:594   ema_Accuracy:94.79
+Epoch:595   Accuracy:94.76   lr:0.000000
+Epoch:595   ema_Accuracy:94.77
+Epoch:596   Accuracy:94.71   lr:0.000000
+Epoch:596   ema_Accuracy:94.81
+Epoch:597   Accuracy:94.81   lr:0.000000
+Epoch:597   ema_Accuracy:94.85
+Epoch:598   Accuracy:94.71   lr:0.000000
+Epoch:598   ema_Accuracy:94.82
+Epoch:599   Accuracy:94.73   lr:0.000000
+Epoch:599   ema_Accuracy:94.80
+Epoch:600   Accuracy:94.80   lr:0.000000
+Epoch:600   ema_Accuracy:94.80
