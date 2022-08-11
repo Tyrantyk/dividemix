@@ -1,0 +1,20 @@
+Epoch:0   Accuracy:44.52   lr:0.020000
+Epoch:0   ema_Accuracy:18.22
+Epoch:1   Accuracy:66.66   lr:0.020000
+Epoch:1   ema_Accuracy:21.34
+Epoch:2   Accuracy:77.08   lr:0.020000
+Epoch:2   ema_Accuracy:25.94
+Epoch:3   Accuracy:80.55   lr:0.020000
+Epoch:3   ema_Accuracy:32.77
+Epoch:4   Accuracy:81.30   lr:0.020000
+Epoch:4   ema_Accuracy:43.38
+Epoch:5   Accuracy:82.21   lr:0.020000
+Epoch:5   ema_Accuracy:57.09
+Epoch:6   Accuracy:81.09   lr:0.020000
+Epoch:6   ema_Accuracy:68.87
+Epoch:7   Accuracy:82.00   lr:0.020000
+Epoch:7   ema_Accuracy:76.37
+Epoch:8   Accuracy:82.29   lr:0.020000
+Epoch:8   ema_Accuracy:80.00
+Epoch:9   Accuracy:81.42   lr:0.020000
+Epoch:9   ema_Accuracy:81.52

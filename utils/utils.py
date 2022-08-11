@@ -10,6 +10,7 @@ import time
 from collections import OrderedDict
 import numpy as np
 from torch.optim.lr_scheduler import LambdaLR
+from model.PreResNet import *
 
 def estimator(index, logits_w, targets, proto_label, feat_pid, k):
     p = torch.softmax(logits_w, dim=1)
@@ -23,6 +24,10 @@ def estimator(index, logits_w, targets, proto_label, feat_pid, k):
                 w[i] = 0
     return w
 
+class NegEntropy(object):
+    def __call__(self,outputs):
+        probs = torch.softmax(outputs, dim=1)
+        return torch.mean(torch.sum(probs.log()*probs, dim=1))
 
 def get_cosine_schedule_with_warmup(optimizer,
                                     num_warmup_steps,
@@ -37,5 +42,15 @@ def get_cosine_schedule_with_warmup(optimizer,
         return max(0.001, math.cos(math.pi * num_cycles * no_progress))
 
     return LambdaLR(optimizer, _lr_lambda, last_epoch)
+
+def create_model(args, device):
+    model = swav(args)
+    model_dict = torch.load("./checkpoint/pretrain500.ckpt", map_location={'cuda:3':"cuda:0"})
+    model_dict['state_dict']["classifier.bias"] = torch.randn((1, 10), dtype=torch.float32).squeeze()
+    model_dict['state_dict']["classifier.weight"] = torch.randn((10, 128), dtype=torch.float32)
+    model_dict['state_dict'].pop("queue")
+    model.load_state_dict(model_dict['state_dict'])
+    model = model.to(device)
+    return model
 
 
